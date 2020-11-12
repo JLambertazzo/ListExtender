@@ -12,27 +12,49 @@ function ExtendingList (classes = '', id = null) {
   }
 
   _self.listItems = []
-  _self.inputFields = []
+  _self.inputType = 'text'
+  _self.inputPlaceholder = ''
 
-  _self.addInputField = (type = 'text', placeholder = '') => {
-    const newInput = document.createElement('INPUT')
-    newInput.setAttribute('type', type)
-    newInput.setAttribute('placeholder', placeholder)
-    _self.inputFields.push(newInput)
+  /* === Helper Functions === */
+  const getInputElement = () => {
+    const input = document.createElement('INPUT')
+    input.setAttribute('type', _self.inputType)
+    input.setAttribute('placeholder', _self.inputPlaceholder)
+    input.setAttribute('key', _self.listItems.length)
+    return input
   }
 
-  _self.removeInputField = fieldNum => {
-    _self.inputFields = _self.inputFields.slice(fieldNum - 1, fieldNum)
+  const validate = () => {
+    // Validates the current active input
+  }
+
+  const turnToList = () => {
+    // Turns the active input to a list element
+  }
+  /* ========================= */
+  
+  _self.setInputType = type => {
+    _self.inputType = type
+  }
+
+  _self.setPlaceholder = placeholder => {
+    _self.inputPlaceholder = placeholder
   }
 
   _self.addListItem = () => {
     const li = document.createElement('LI')
-    for (let i = 0; i < _self.inputFields.length; i++) {
-      li.appendChild(_self.inputFields[i])
-    }
-    li.setAttribute('key', _self.listItems.length)
+    const input = getInputElement()
+    li.appendChild(input)
     _self.appendChild(li)
   }
+
+  _self.addEventListener('mousedown', event => {
+    // If target is not input, force focus out event
+  })
+
+  _self.addEventListener('focusout', () => {
+    // Validate, and turn to list
+  })
 
   return _self
 }
