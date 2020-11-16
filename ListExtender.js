@@ -70,6 +70,8 @@ function ExtendingList (classes = '', id = null) {
     }
     return true
   }
+
+  const checkEmpty = input => (input.value === '' && parseInt(input.parentElement.getAttribute('key')) !== listSize - 1)
   /* ========================= */
 
   _self.setInputType = type => {
@@ -95,15 +97,17 @@ function ExtendingList (classes = '', id = null) {
     const li = document.createElement('LI')
     const input = getInputElement()
     li.appendChild(input)
-    li.setAttribute('key', _self.listSize)
+    li.setAttribute('key', listSize)
     _self.appendChild(li)
     listSize++
   }
 
   _self.addEventListener('focusout', event => {
     // Validate, and turn to list
-    console.log(event.target)
-    if (validate(event.target) && customChecks(event.target)) {
+    if (checkEmpty(event.target)) {
+      _self.removeChild(event.target.parentElement)
+      listSize--
+    } else if (validate(event.target) && customChecks(event.target)) {
       turnToList(event.target)
     } else {
       event.preventDefault()
