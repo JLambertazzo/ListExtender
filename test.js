@@ -3,10 +3,9 @@
 const log = console.log
 
 const myUL = ExtendingList('class1 class2', 'myID')
-log('UL - Given classes: ' + myUL.classList)
-log('UL - Given id: ' + myUL.id)
 document.body.appendChild(myUL)
-myUL.setInputType('email')
-myUL.setPlaceholder('name@domain.com')
+myUL.setInputType('text')
+myUL.setPlaceholder('VALID')
 myUL.addListItem()
-myUL.addValidation(value => (value.length > 8), 'Too short!!')
+myUL.maxSize = 4
+myUL.addValidation(value => (value === 'VALID'), 'Please enter "VALID"')

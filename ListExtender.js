@@ -3,6 +3,7 @@ console.log('----------')
 console.log('list extender loaded')
 
 function ExtendingList (classes = '', id = null) {
+  // Create element, set classis and id
   const _self = document.createElement('UL')
   classes.split(' ').forEach(c => {
     _self.classList.add(c)
@@ -11,17 +12,25 @@ function ExtendingList (classes = '', id = null) {
     _self.id = id
   }
 
-  _self.listItems = []
+  let listSize = 0
   _self.inputChecks = []
-  _self.inputType = 'text'
-  _self.inputPlaceholder = ''
+  _self.maxSize = 100
+  _self.attr = {
+    type: 'text',
+    placeholder: ''
+  }
 
   /* === Helper Functions === */
   const getInputElement = () => {
     const input = document.createElement('INPUT')
-    input.setAttribute('type', _self.inputType)
-    input.setAttribute('placeholder', _self.inputPlaceholder)
-    input.setAttribute('key', _self.listItems.length)
+    input.setAttribute('type', _self.attr.type)
+    input.setAttribute('placeholder', _self.attr.placeholder)
+    if (_self.attr.minLength) {
+      input.setAttribute('minLength', _self.attr.minLength)
+    }
+    if (_self.attr.maxLength) {
+      input.setAttribute('maxLength', _self.attr.maxLength)
+    }
     input.setAttribute('required', '')
     return input
   }
@@ -64,22 +73,36 @@ function ExtendingList (classes = '', id = null) {
   /* ========================= */
 
   _self.setInputType = type => {
-    _self.inputType = type
+    _self.attr.type = type
   }
 
   _self.setPlaceholder = placeholder => {
-    _self.inputPlaceholder = placeholder
+    _self.attr.placeholder = placeholder
+  }
+
+  _self.setMinLength = minLength => {
+    _self.attr.minLength = minLength
+  }
+
+  _self.setMaxLength = maxLength => {
+    _self.attr.maxLength = maxLength
   }
 
   _self.addListItem = () => {
+    if (listSize === _self.maxSize) {
+      return
+    }
     const li = document.createElement('LI')
     const input = getInputElement()
     li.appendChild(input)
+    li.setAttribute('key', _self.listSize)
     _self.appendChild(li)
+    listSize++
   }
 
   _self.addEventListener('focusout', event => {
     // Validate, and turn to list
+    console.log(event.target)
     if (validate(event.target) && customChecks(event.target)) {
       turnToList(event.target)
     } else {
@@ -88,7 +111,6 @@ function ExtendingList (classes = '', id = null) {
   })
 
   _self.addEventListener('mousedown', event => {
-    console.log(event.target)
     if (event.target.tagName === 'LI') {
       turnToInput(event.target)
     }
