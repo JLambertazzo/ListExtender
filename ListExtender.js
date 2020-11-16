@@ -12,6 +12,7 @@ function ExtendingList (classes = '', id = null) {
   }
 
   _self.listItems = []
+  _self.inputChecks = []
   _self.inputType = 'text'
   _self.inputPlaceholder = ''
 
@@ -48,6 +49,18 @@ function ExtendingList (classes = '', id = null) {
     li.removeChild(li.firstChild)
     li.appendChild(input)
   }
+
+  const customChecks = input => {
+    for (let i = 0; i < _self.inputChecks.length; i++) {
+      if (!_self.inputChecks[i].callback(input.value)) {
+        input.setCustomValidity(_self.inputChecks[i].message)
+        return false
+      } else {
+        input.setCustomValidity('')
+      }
+    }
+    return true
+  }
   /* ========================= */
 
   _self.setInputType = type => {
@@ -67,7 +80,7 @@ function ExtendingList (classes = '', id = null) {
 
   _self.addEventListener('focusout', event => {
     // Validate, and turn to list
-    if (validate(event.target)) {
+    if (validate(event.target) && customChecks(event.target)) {
       turnToList(event.target)
     } else {
       event.preventDefault()
@@ -83,16 +96,23 @@ function ExtendingList (classes = '', id = null) {
 
   _self.addEventListener('input', event => {
     // if all inputs are valid, add another to list
-    // TODO don't check newly added element
     const inputs = _self.querySelectorAll('input')
     for (let i = 0; i < inputs.length; i++) {
-      if (!inputs[i].checkValidity()) {
+      if (!customChecks(inputs[i]) ||
+      !inputs[i].checkValidity()) {
         return
       }
     }
 
     _self.addListItem()
   })
+
+  _self.addValidation = (callback, errorMessage = 'Invalid input') => {
+    _self.inputChecks.push({
+      callback: callback,
+      message: errorMessage
+    })
+  }
 
   return _self
 }
