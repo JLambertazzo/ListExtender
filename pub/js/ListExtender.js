@@ -142,5 +142,15 @@ function ExtendingList (classes = '', id = '') {
     })
   }
 
+  _self.addFromArray = data => {
+    if (_self.children.length === 0) {
+      for (let i = 0; i < data.length; i++) {
+        _self.addListItem()
+        _self.children[i].firstChild.value = data[i]
+        turnToList(_self.children[i].firstChild)
+      }
+    }
+  }
+
   return _self
 }
