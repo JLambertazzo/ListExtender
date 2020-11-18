@@ -1,0 +1,23 @@
+{
+  "name": "js-library-lamber97",
+  "version": "0.1.0",
+  "description": "Alpha Release Site",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/csc309-fall-2020/js-library-lamber97.git"
+  },
+  "author": "Julien Bertazzo Lambert",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/csc309-fall-2020/js-library-lamber97/issues"
+  },
+  "homepage": "https://github.com/csc309-fall-2020/js-library-lamber97#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
