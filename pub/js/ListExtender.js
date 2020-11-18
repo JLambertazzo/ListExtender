@@ -115,7 +115,9 @@ function ExtendingList (classes = '', id = '') {
   })
 
   _self.addEventListener('mousedown', event => {
-    if (event.target.tagName === 'LI') {
+    if (event.target.tagName === 'LI' &&
+    event.target.firstChild &&
+    event.target.firstChild.tagName !== 'INPUT') {
       turnToInput(event.target)
     }
   })
