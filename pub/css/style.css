@@ -1,0 +1,56 @@
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Andale', monospace;
+    margin: 0px;
+    color: rgb(26, 53, 53);
+}
+
+#header {
+    display: grid;
+    place-items: center;
+    background: darkslategray;
+    color: ivory;
+    margin: 0px;
+    min-height: 40vh;
+    height: auto;
+    box-shadow: 2px 0px 20px 2px darkcyan;
+}
+
+#header li {
+    list-style-type: none;
+}
+
+#example1 {
+    display: grid;
+    place-items: center;
+}
+
+#example1 li {
+    list-style-type: square;
+}
+
+#example2 {
+    display: grid;
+    place-items: center;
+}
+
+#example2 div {
+    width: 60vw;
+}
+
+#employeeSide input:valid {
+    background-color: lightgreen;
+}
+
+ul {
+    padding: 0px;
+}
+
+input::placeholder {
+  font-family: 'Andale', monospace;
+}
+
+input:focus {
+    outline: none;
+}

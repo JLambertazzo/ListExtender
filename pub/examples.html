@@ -2,6 +2,8 @@
 <html>
     <head>
         <title>ListExtender.js</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="icon" href="img/icon.png">
         <script defer type="text/javascript" src="js/ListExtender.js"></script>
         <script defer type="text/javascript" src="js/examples.js"></script>
     </head>
@@ -15,30 +17,19 @@
         </div>
         <h2>Use Case Examples:</h2>
         <div id="example1">
-            <h3>Grocery List</h3>
-            <p>Here is an example of the custom validation. Add groceries to the grocery list below! 
+            <h3>Example 1: Grocery List</h3>
+            <p>Here is an example of the custom validation. Add groceries to the grocery list below!<br/>
+                Below the list is the code used to generate it. <br/> 
                 You will be prevented from adding duplicates.</p>
-            <pre><code id='groceryCode' lang="javascript">
-const groceryList = ExtendingList('', 'groceryList')
-groceryList.setPlaceholder('Add an item here')
-groceryList.addListItem()
-groceryList.addValidation(value => {
-    for (let i = 0; i < groceryList.children.length; i++) {
-        const childEl = groceryList.children[i]
-        return (childEl.tagName === 'LI' && childEl.innerText !== value)
-    }
-}, 'Duplicates not allowed')
-document.querySelector('#example1 code').before(groceryList)
-            </code></pre>
         </div>
         <div id="example2">
-            <h3>Job Search</h3>
+            <h3>Example 2: Job Search</h3>
             <div id='employerSide'>
-                <p>Add the requirements you are looking for (Maximum of 10):</p>
+                <p>You are an employer looking to hire. Add the requirements you are looking for (Maximum of 10):</p>
             </div>
             <div id='employeeSide'>
-                <p>Add your academic history below</p>
-                <p>Must follow the format: School Name: Major/Focus (startyear-startmonth-startday : endyear-endmonth-endday)</p>
+                <p>You are a recent grad looking for a job. Add your academic history below</p>
+                <p><em>Must follow the format:<br/> School Name: Major/Focus (startyear-startmonth-startday : endyear-endmonth-endday)</em></p>
             </div>
         </div>
     </body>

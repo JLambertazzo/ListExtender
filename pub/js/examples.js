@@ -16,10 +16,10 @@ groceryList.addValidation(value => {
     return (childEl.tagName === 'LI' && childEl.innerText !== value)
   }
 }, 'Duplicates not allowed')
-document.querySelector('#example1 code').before(groceryList)
+document.querySelector('#example1').appendChild(groceryList)
 
 const skillList = ExtendingList('', 'skillList')
-skillList.setPlaceholder('add required skills here')
+skillList.setPlaceholder('add a skill')
 skillList.maxSize = 10
 skillList.addListItem()
 document.querySelector('#employerSide').appendChild(skillList)
