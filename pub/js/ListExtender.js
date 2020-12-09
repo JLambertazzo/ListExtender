@@ -1,41 +1,67 @@
-'use strict'
-console.log('----------')
-console.log('list extender loaded')
+'use strict';
 
-function ExtendingList (classes = '', id = '') {
+(function(global, document) {
   // Create element, set classis and id
-  const _self = document.createElement('UL')
-  classes.split(' ').forEach(c => {
-    if (c !== '') {
-      _self.classList.add(c)
+  function ListExtender() {
+    this.element = document.createElement('UL')
+    this.maxSize = 100
+    this.listSize = 0
+    this.inputChecks = []
+    this.attr = {
+      type: 'text',
+      placeholder: ''
     }
-  })
-  _self.id = id
 
-  let listSize = 0
-  _self.inputChecks = []
-  _self.maxSize = 100
-  _self.attr = {
-    type: 'text',
-    placeholder: ''
+    this.element.addEventListener('focusout', event => {
+      // Validate, and turn to list
+      if (checkEmpty(event.target, this) && this.listSize > 1) {
+        this.element.removeChild(event.target.parentElement)
+        this.listSize--
+      } else if (validate(event.target) && customChecks(event.target, this)) {
+        turnToList(event.target)
+      } else {
+        event.preventDefault()
+      }
+    })
+
+    this.element.addEventListener('mousedown', event => {
+      if (event.target.tagName === 'LI' &&
+      event.target.firstChild &&
+      event.target.firstChild.tagName !== 'INPUT') {
+        turnToInput(event.target, this)
+      }
+    })
+
+    this.element.addEventListener('input', event => {
+      // if all inputs are valid, add another to list
+      const inputs = this.element.querySelectorAll('input')
+      for (let i = 0; i < inputs.length; i++) {
+        if (!customChecks(inputs[i], this) ||
+        !inputs[i].checkValidity()) {
+          return
+        }
+      }
+
+      this.addListItem()
+    })
   }
 
   /* === Helper Functions === */
-  const getInputElement = () => {
+  function getInputElement (listObj) {
     const input = document.createElement('INPUT')
-    input.setAttribute('type', _self.attr.type)
-    input.setAttribute('placeholder', _self.attr.placeholder)
-    if (_self.attr.minLength) {
-      input.setAttribute('minLength', _self.attr.minLength)
+    input.setAttribute('type', listObj.attr.type)
+    input.setAttribute('placeholder', listObj.attr.placeholder)
+    if (listObj.attr.minLength) {
+      input.setAttribute('minLength', listObj.attr.minLength)
     }
-    if (_self.attr.maxLength) {
-      input.setAttribute('maxLength', _self.attr.maxLength)
+    if (listObj.attr.maxLength) {
+      input.setAttribute('maxLength', listObj.attr.maxLength)
     }
     input.setAttribute('required', '')
     return input
   }
 
-  const validate = input => {
+  function validate (input) {
     // Validates the current active input
     if (input.checkValidity()) {
       return true
@@ -45,24 +71,24 @@ function ExtendingList (classes = '', id = '') {
     }
   }
 
-  const turnToList = input => {
+  function turnToList (input) {
     // Turns the active input to a list element
     const li = input.parentElement
     li.removeChild(input)
     li.appendChild(document.createTextNode(input.value))
   }
 
-  const turnToInput = li => {
-    const input = getInputElement()
+  function turnToInput (li, listObj) {
+    const input = getInputElement(listObj)
     input.value = li.innerText
     li.removeChild(li.firstChild)
     li.appendChild(input)
   }
 
-  const customChecks = input => {
-    for (let i = 0; i < _self.inputChecks.length; i++) {
-      if (!_self.inputChecks[i].callback(input.value)) {
-        input.setCustomValidity(_self.inputChecks[i].message)
+  function customChecks (input, listObj) {
+    for (let i = 0; i < listObj.inputChecks.length; i++) {
+      if (!listObj.inputChecks[i].callback(input.value)) {
+        input.setCustomValidity(listObj.inputChecks[i].message)
         return false
       } else {
         input.setCustomValidity('')
@@ -71,86 +97,59 @@ function ExtendingList (classes = '', id = '') {
     return true
   }
 
-  const checkEmpty = input => (input.value === '' && parseInt(input.parentElement.getAttribute('key')) !== listSize - 1)
+  function checkEmpty (input, listObj) {
+    return (input.value === '') &&
+    (parseInt(input.parentElement.getAttribute('key')) !== listObj.listSize - 1)
+  }
   /* ========================= */
 
-  _self.setInputType = type => {
-    _self.attr.type = type
-  }
+  ListExtender.prototype = {
+    setInputType: function (type) {
+      this.attr.type = type
+    },
 
-  _self.setPlaceholder = placeholder => {
-    _self.attr.placeholder = placeholder
-  }
+    setPlaceholder: function (placeholder) {
+      this.attr.placeholder = placeholder
+    },
 
-  _self.setMinLength = minLength => {
-    _self.attr.minLength = minLength
-  }
+    setMinLength: function (minLength) {
+      this.attr.minLength = minLength
+    },
 
-  _self.setMaxLength = maxLength => {
-    _self.attr.maxLength = maxLength
-  }
+    setMaxLength: function (maxLength) {
+      this.attr.maxLength = maxLength
+    },
 
-  _self.addListItem = () => {
-    if (listSize === _self.maxSize) {
-      return
-    }
-    const li = document.createElement('LI')
-    const input = getInputElement()
-    li.appendChild(input)
-    li.setAttribute('key', listSize)
-    _self.appendChild(li)
-    listSize++
-  }
-
-  _self.addEventListener('focusout', event => {
-    // Validate, and turn to list
-    if (checkEmpty(event.target) && listSize > 1) {
-      _self.removeChild(event.target.parentElement)
-      listSize--
-    } else if (validate(event.target) && customChecks(event.target)) {
-      turnToList(event.target)
-    } else {
-      event.preventDefault()
-    }
-  })
-
-  _self.addEventListener('mousedown', event => {
-    if (event.target.tagName === 'LI' &&
-    event.target.firstChild &&
-    event.target.firstChild.tagName !== 'INPUT') {
-      turnToInput(event.target)
-    }
-  })
-
-  _self.addEventListener('input', event => {
-    // if all inputs are valid, add another to list
-    const inputs = _self.querySelectorAll('input')
-    for (let i = 0; i < inputs.length; i++) {
-      if (!customChecks(inputs[i]) ||
-      !inputs[i].checkValidity()) {
+    addListItem: function () {
+      if (this.listSize === this.maxSize) {
         return
       }
-    }
+      const li = document.createElement('LI')
+      const input = getInputElement(this)
+      li.appendChild(input)
+      li.setAttribute('key', this.listSize)
+      this.element.appendChild(li)
+      this.listSize++
+    },
 
-    _self.addListItem()
-  })
+    addValidation: function (callback, errorMessage = 'Invalid input') {
+      this.inputChecks.push({
+        callback: callback,
+        message: errorMessage
+      })
+    },
 
-  _self.addValidation = (callback, errorMessage = 'Invalid input') => {
-    _self.inputChecks.push({
-      callback: callback,
-      message: errorMessage
-    })
-  }
-
-  _self.addFromArray = data => {
-    if (_self.children.length === 0) {
-      for (let i = 0; i < data.length; i++) {
-        _self.addListItem()
-        _self.children[i].firstChild.value = data[i]
-        turnToList(_self.children[i].firstChild)
+    addFromArray: function (data) {
+      if (this.element.children.length === 0) {
+        for (let i = 0; i < data.length; i++) {
+          this.addListItem()
+          this.element.children[i].firstChild.value = data[i]
+          turnToList(this.element.children[i].firstChild)
+        }
       }
     }
   }
 
-  return _self
-}
+  global.ListExtender = global.ListExtender || ListExtender
+  console.log('done')
+})(window, window.document)
