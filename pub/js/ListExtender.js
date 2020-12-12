@@ -1,6 +1,6 @@
 'use strict';
 
-(function(global, document) {
+(function (global, document) {
   // Create element, set classis and id
   function ListExtender() {
     this.element = document.createElement('UL')
@@ -13,14 +13,14 @@
     }
 
     this.element.addEventListener('focusout', event => {
-      // Validate, and turn to list
-      if (checkEmpty(event.target, this) && this.listSize > 1) {
-        this.element.removeChild(event.target.parentElement)
-        this.listSize--
-      } else if (validate(event.target) && customChecks(event.target, this)) {
-        turnToList(event.target)
-      } else {
-        event.preventDefault()
+      // Validate, and turn to list.
+      if (event.target.parentElement.nextSibling || event.target.value !== '') {
+        if (checkEmpty(event.target, this) && this.listSize > 1) {
+          this.element.removeChild(event.target.parentElement)
+          this.listSize--
+        } else if (validate(event.target) && customChecks(event.target, this)) {
+          turnToList(event.target)
+        }
       }
     })
 
@@ -147,9 +147,29 @@
           turnToList(this.element.children[i].firstChild)
         }
       }
+    },
+
+    appendTo: function (query) {
+      const parent = document.querySelector(query)
+      if (parent) {
+        parent.appendChild(this.element)
+      }
+    },
+
+    addBefore: function (query) {
+      const nextSibling = document.querySelector(query)
+      if (nextSibling) {
+        nextSibling.before(this.element)
+      }
+    },
+
+    addAfter: function (query) {
+      const prevSibling = document.querySelector(query)
+      if (prevSibling) {
+        prevSibling.after(this.element)
+      }
     }
   }
 
   global.ListExtender = global.ListExtender || ListExtender
-  console.log('done')
 })(window, window.document)
