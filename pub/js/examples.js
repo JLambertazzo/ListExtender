@@ -7,12 +7,11 @@ headerList.addListItem()
 headerList.appendTo('#header')
 
 const groceryList = new ListExtender()
-const groceryUL = groceryList.element
 groceryList.setPlaceholder('Add an item here')
 groceryList.addListItem()
 groceryList.addValidation(value => {
-  for (let i = 0; i < groceryUL.children.length; i++) {
-    const childEl = groceryUL.children[i]
+  for (let i = 0; i < groceryList.element.children.length; i++) {
+    const childEl = groceryList.element.children[i]
     if (childEl.tagName === 'LI' && childEl.innerText === value) {
       return false
     }

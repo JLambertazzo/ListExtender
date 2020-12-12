@@ -2,7 +2,7 @@
 
 (function (global, document) {
   // Create element, set classis and id
-  function ListExtender() {
+  function ListExtender () {
     this.element = document.createElement('UL')
     this.maxSize = 100
     this.listSize = 0
@@ -25,10 +25,15 @@
     })
 
     this.element.addEventListener('mousedown', event => {
+      if (event.target.firstChild) {
+        event.preventDefault()
+      }
       if (event.target.tagName === 'LI' &&
       event.target.firstChild &&
       event.target.firstChild.tagName !== 'INPUT') {
         turnToInput(event.target, this)
+        event.target.firstElementChild.select()
+        event.target.firstElementChild.selectionStart = event.target.firstElementChild.selectionEnd
       }
     })
 
