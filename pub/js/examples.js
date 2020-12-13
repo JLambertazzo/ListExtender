@@ -18,6 +18,7 @@ groceryList.addValidation(value => {
   }
   return true
 }, 'Duplicates not allowed')
+groceryList.addValidation(value => value.match(/[A-Z].*/), 'Entry must start with capital letter')
 groceryList.appendTo('#example1')
 
 const skillList = new ListExtender()

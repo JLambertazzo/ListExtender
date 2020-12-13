@@ -104,7 +104,7 @@
 
   function checkEmpty (input, listObj) {
     return (input.value === '') &&
-    (parseInt(input.parentElement.getAttribute('key')) !== listObj.listSize - 1)
+    (parseInt(input.parentElement.getAttribute('key')) !== listObj.listSize)
   }
   /* ========================= */
 
@@ -148,8 +148,8 @@
       if (this.element.children.length === 0) {
         for (let i = 0; i < data.length; i++) {
           this.addListItem()
-          this.element.children[i].firstChild.value = data[i]
-          turnToList(this.element.children[i].firstChild)
+          this.element.lastElementChild.firstChild.value = data[i]
+          turnToList(this.element.lastElementChild.firstChild)
         }
       }
     },
@@ -187,12 +187,15 @@
 
     getAllData: function () {
       const data = []
-      for (let i = 0; i < this.element.children.length - 1; i++) {
+      for (let i = 0; i < this.element.children.length; i++) {
         if (!this.element.children[i].firstElementChild) {
           data.push(this.element.children[i].innerText)
         } else {
           data.push(this.element.children[i].firstElementChild.value)
         }
+      }
+      if (data[this.element.children.length - 1] === '') {
+        data.pop()
       }
       return data
     }
