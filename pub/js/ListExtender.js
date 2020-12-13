@@ -173,6 +173,28 @@
       if (prevSibling) {
         prevSibling.after(this.element)
       }
+    },
+
+    getData: function () {
+      const data = []
+      for (let i = 0; i < this.element.children.length; i++) {
+        if (!this.element.children[i].firstElementChild) {
+          data.push(this.element.children[i].innerText)
+        }
+      }
+      return data
+    },
+
+    getAllData: function () {
+      const data = []
+      for (let i = 0; i < this.element.children.length - 1; i++) {
+        if (!this.element.children[i].firstElementChild) {
+          data.push(this.element.children[i].innerText)
+        } else {
+          data.push(this.element.children[i].firstElementChild.value)
+        }
+      }
+      return data
     }
   }
 
