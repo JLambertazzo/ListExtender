@@ -10,7 +10,7 @@ const groceryList = new ListExtender()
 groceryList.setPlaceholder('Add an item here')
 groceryList.addListItem()
 groceryList.addValidation(value => {
-  for (let i = 0; i < groceryList.element.children.length; i++) {
+  for (let i = 0; i < groceryList.listSize; i++) {
     const childEl = groceryList.element.children[i]
     if (childEl.tagName === 'LI' && childEl.innerText === value) {
       return false

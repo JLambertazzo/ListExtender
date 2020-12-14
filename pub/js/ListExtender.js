@@ -15,7 +15,7 @@
     this.element.addEventListener('focusout', event => {
       // Validate, and turn to list.
       if (event.target.parentElement.nextSibling || event.target.value !== '') {
-        if (checkEmpty(event.target, this) && this.listSize > 1) {
+        if (canRemove(event.target, this) && this.listSize > 1) {
           this.element.removeChild(event.target.parentElement)
           this.listSize--
         } else if (validate(event.target) && customChecks(event.target, this)) {
@@ -24,7 +24,7 @@
       }
     })
 
-    this.element.addEventListener('mousedown', event => {
+    this.element.addEventListener('dblclick', event => {
       if (event.target.firstChild) {
         event.preventDefault()
       }
@@ -48,6 +48,33 @@
       }
 
       this.addListItem()
+    })
+
+    /*
+      Following function uses external code
+      Title: How To Build Sortable Drag & Drop With Vanilla Javascript
+      Author: Web Dev Simplified
+      Date: 17 March 2020
+      Availability: https://www.youtube.com/watch?v=jfYWwQrtzzY
+    */
+    this.element.addEventListener('dragover', event => {
+      event.preventDefault()
+      let closestEl = null
+      let smallestDist = window.outerHeight * -1
+      const dragging = document.querySelector('.dragging')
+      const children = ([...this.element.children]).filter(el => el !== dragging)
+      children.forEach(child => {
+        const y = child.getBoundingClientRect().y
+        if (event.clientY - y > smallestDist && event.clientY - y < 0) {
+          closestEl = child
+          smallestDist = y - event.clientY
+        }
+      })
+      if (closestEl) {
+        closestEl.before(dragging)
+      } else {
+        this.element.appendChild(dragging)
+      }
     })
   }
 
@@ -102,9 +129,17 @@
     return true
   }
 
-  function checkEmpty (input, listObj) {
-    return (input.value === '') &&
-    (parseInt(input.parentElement.getAttribute('key')) !== listObj.listSize)
+  function canRemove (input, listObj) {
+    // allow deleting if input is empty and list has 2+ inputs
+    const children = [...listObj.element.children]
+    const numInputs = children.reduce((numInputs, child) => {
+      if (child.firstElementChild) {
+        return ++numInputs
+      }
+      return numInputs
+    }, 0)
+    console.log(numInputs)
+    return (input.value === '') && numInputs >= 2
   }
   /* ========================= */
 
@@ -133,6 +168,9 @@
       const input = getInputElement(this)
       li.appendChild(input)
       li.setAttribute('key', this.listSize)
+      li.setAttribute('draggable', true)
+      li.addEventListener('dragstart', this.handleDragStart)
+      li.addEventListener('dragend', this.handleDragEnd)
       this.element.appendChild(li)
       this.listSize++
     },
@@ -196,6 +234,18 @@
         data.pop()
       }
       return data
+    },
+
+    handleDragStart: function (event) {
+      if (event.target.firstElementChild) {
+        event.preventDefault()
+      } else {
+        event.target.classList.add('dragging')
+      }
+    },
+
+    handleDragEnd: function (event) {
+      event.target.classList.remove('dragging')
     }
   }
 
