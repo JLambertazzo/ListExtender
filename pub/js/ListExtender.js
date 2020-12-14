@@ -145,12 +145,10 @@
     },
 
     addFromArray: function (data) {
-      if (this.element.children.length === 0) {
-        for (let i = 0; i < data.length; i++) {
-          this.addListItem()
-          this.element.lastElementChild.firstChild.value = data[i]
-          turnToList(this.element.lastElementChild.firstChild)
-        }
+      for (let i = 0; i < data.length; i++) {
+        this.addListItem()
+        this.element.lastElementChild.firstChild.value = data[i]
+        turnToList(this.element.lastElementChild.firstChild)
       }
     },
 
