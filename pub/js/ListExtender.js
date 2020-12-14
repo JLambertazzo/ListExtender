@@ -244,11 +244,13 @@
         event.preventDefault()
       } else {
         event.target.classList.add('dragging')
+        event.target.setAttribute('style', 'opacity: 0.5;')
       }
     },
 
     handleDragEnd: function (event) {
       event.target.classList.remove('dragging')
+      event.target.setAttribute('style', 'opacity: 1;')
     }
   }
 
