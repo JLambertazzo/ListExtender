@@ -59,9 +59,12 @@
     */
     this.element.addEventListener('dragover', event => {
       event.preventDefault()
+      const dragging = document.querySelector('.dragging')
+      if (!this.element.contains(dragging)) {
+        return
+      }
       let closestEl = null
       let smallestDist = window.outerHeight * -1
-      const dragging = document.querySelector('.dragging')
       const children = ([...this.element.children]).filter(el => el !== dragging)
       children.forEach(child => {
         const y = child.getBoundingClientRect().y
