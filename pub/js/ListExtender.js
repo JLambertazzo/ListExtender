@@ -6,9 +6,19 @@
     this.options = {
       isUnordered: true,
       allowReorder: true,
+      id: '',
+      classList: [],
       ...options
     }
+    // element set up
     this.element = this.options.isUnordered ? document.createElement('UL') : document.createElement('OL')
+    if (this.options.id) {
+      this.element.id = this.options.id
+    }
+    if (this.options.classList.length > 0) {
+      this.element.classList.add([...this.options.classList])
+    }
+
     this.maxSize = 100
     this.listSize = 0
     this.inputChecks = []
@@ -148,7 +158,7 @@
       }
       return numInputs
     }, 0)
-    console.log(numInputs)
+    
     return (input.value === '') && numInputs >= 2
   }
   /* ========================= */
@@ -168,6 +178,18 @@
 
     setMaxLength: function (maxLength) {
       this.attr.maxLength = maxLength
+    },
+
+    setId: function (id) {
+      this.element.id = id
+    },
+
+    addClasses: function (classList) {
+      this.element.classList.add([...classList])
+    },
+
+    removeClasses: function (classList) {
+      this.element.classList.remove([...classList])
     },
 
     addListItem: function () {
