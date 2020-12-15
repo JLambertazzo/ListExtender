@@ -282,6 +282,64 @@
     handleDragEnd: function (event) {
       event.target.classList.remove('dragging')
       event.target.setAttribute('style', 'opacity: 1;')
+    },
+
+    setTheme: function (theme) {
+      const cssText = Object.keys(theme).reduce((text, curr) => {
+        const prop = curr
+        const val = theme[curr]
+        return `${text} ${prop}: ${val};`
+      }, '')
+      this.element.style.cssText = cssText
+    },
+
+    // THEMES
+    simpleLight: {
+      background: 'white',
+      color: 'darkslategray',
+      'list-style': 'inside square'
+    },
+
+    simpleDark: {
+      background: 'darkslategray',
+      color: 'ivory',
+      'list-style': 'inside square'
+    },
+
+    cream: {
+      background: 'antiquewhite',
+      color: 'darkolivegreen',
+      'list-style': 'inside \'-\''
+    },
+
+    hacker: {
+      background: 'black',
+      color: 'lime',
+      'list-style': 'inside \'> \''
+    },
+
+    underwater: {
+      background: 'blue',
+      color: 'aquamarine',
+      'list-style': '\'~\''
+    },
+
+    MLA: {
+      'line-height': '2em',
+      background: 'white',
+      color: 'black',
+    },
+
+    PuTTY: {
+      background: 'black',
+      color: 'white',
+      'list-style': 'inside \'$ \''
+    },
+
+    emoji: {
+      background: 'white',
+      color: 'teal',
+      'list-style': '\'\\1F449\''
     }
   }
 

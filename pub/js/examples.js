@@ -26,6 +26,7 @@ skillList.setPlaceholder('add a skill')
 skillList.maxSize = 10
 skillList.addListItem()
 skillList.appendTo('#employerSide')
+skillList.setTheme(skillList.emoji)
 
 const academicList = new ListExtender()
 academicList.setPlaceholder('School: Major (yyyy-mm : yyyy-mm)')
