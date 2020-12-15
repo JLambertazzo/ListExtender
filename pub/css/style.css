@@ -26,10 +26,6 @@ body {
     place-items: center;
 }
 
-#example1 li {
-    list-style-type: square;
-}
-
 #example2 {
     display: grid;
     place-items: center;

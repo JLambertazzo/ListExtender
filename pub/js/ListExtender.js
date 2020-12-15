@@ -2,8 +2,13 @@
 
 (function (global, document) {
   // Create element, set classis and id
-  function ListExtender () {
-    this.element = document.createElement('UL')
+  function ListExtender (options = {}) {
+    this.options = {
+      isUnordered: true,
+      allowReorder: true,
+      ...options
+    }
+    this.element = this.options.isUnordered ? document.createElement('UL') : document.createElement('OL')
     this.maxSize = 100
     this.listSize = 0
     this.inputChecks = []
@@ -57,28 +62,30 @@
       Date: 17 March 2020
       Availability: https://www.youtube.com/watch?v=jfYWwQrtzzY
     */
-    this.element.addEventListener('dragover', event => {
-      event.preventDefault()
-      const dragging = document.querySelector('.dragging')
-      if (!this.element.contains(dragging)) {
-        return
-      }
-      let closestEl = null
-      let smallestDist = window.outerHeight * -1
-      const children = ([...this.element.children]).filter(el => el !== dragging)
-      children.forEach(child => {
-        const y = child.getBoundingClientRect().y
-        if (event.clientY - y > smallestDist && event.clientY - y < 0) {
-          closestEl = child
-          smallestDist = y - event.clientY
+    if (this.options.allowReorder) {
+      this.element.addEventListener('dragover', event => {
+        event.preventDefault()
+        const dragging = document.querySelector('.dragging')
+        if (!this.element.contains(dragging)) {
+          return
+        }
+        let closestEl = null
+        let smallestDist = window.outerHeight * -1
+        const children = ([...this.element.children]).filter(el => el !== dragging)
+        children.forEach(child => {
+          const y = child.getBoundingClientRect().y
+          if (event.clientY - y > smallestDist && event.clientY - y < 0) {
+            closestEl = child
+            smallestDist = y - event.clientY
+          }
+        })
+        if (closestEl) {
+          closestEl.before(dragging)
+        } else {
+          this.element.appendChild(dragging)
         }
       })
-      if (closestEl) {
-        closestEl.before(dragging)
-      } else {
-        this.element.appendChild(dragging)
-      }
-    })
+    }
   }
 
   /* === Helper Functions === */
@@ -171,9 +178,11 @@
       const input = getInputElement(this)
       li.appendChild(input)
       li.setAttribute('key', this.listSize)
-      li.setAttribute('draggable', true)
-      li.addEventListener('dragstart', this.handleDragStart)
-      li.addEventListener('dragend', this.handleDragEnd)
+      if (this.options.allowReorder) {
+        li.setAttribute('draggable', true)
+        li.addEventListener('dragstart', this.handleDragStart)
+        li.addEventListener('dragend', this.handleDragEnd)
+      }
       this.element.appendChild(li)
       this.listSize++
     },
