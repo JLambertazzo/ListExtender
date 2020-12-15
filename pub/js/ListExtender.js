@@ -27,6 +27,8 @@
       placeholder: ''
     }
 
+    this.element.setAttribute('style', 'line-height: 1.5em;')
+
     this.element.addEventListener('focusout', event => {
       // Validate, and turn to list.
       if (event.target.getAttribute('type') === 'submit') {
@@ -205,7 +207,7 @@
     const button = document.createElement('INPUT')
     button.setAttribute('type', 'submit')
     button.setAttribute('value', 'x')
-    button.setAttribute('style', 'background: red; border: 0px; border-radius: 100%; font-size: 1em; margin-left: 1em; visibility: hidden; right: 0;')
+    button.setAttribute('style', 'background: lightcoral; color: red; border: 2px solid red; border-radius: 100%; font-size: 1em; visibility: hidden; opacity: 0.7; float: right;')
     return button
   }
   /* ========================= */
@@ -247,7 +249,6 @@
       const input = getInputElement(this)
       li.appendChild(input)
       li.setAttribute('key', this.listSize)
-      li.style.display = 'flex'
       li.style.justifyContent = 'space-between'
       if (this.options.allowReorder) {
         li.setAttribute('draggable', true)
