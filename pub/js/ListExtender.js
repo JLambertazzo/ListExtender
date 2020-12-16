@@ -4,8 +4,10 @@
   // Create element, set classis and id
   function ListExtender (options = {}) {
     this.options = {
+      // set default options and overwrite using what's given
       isUnordered: true,
       allowReorder: true,
+      showDeleteButton: false,
       id: '',
       classList: [],
       ...options
@@ -38,7 +40,7 @@
           this.element.removeChild(event.target.parentElement)
           this.listSize--
         } else if (validate(event.target) && customChecks(event.target, this)) {
-          turnToList(event.target)
+          turnToList(event.target, this)
         }
       }
     })
@@ -78,7 +80,6 @@
     */
     if (this.options.allowReorder) {
       this.element.addEventListener('dragover', event => {
-        console.log('in here')
         event.preventDefault()
         const dragging = document.querySelector('.dragging')
         if (!this.element.contains(dragging)) {
@@ -102,32 +103,35 @@
       })
     }
 
-    this.element.addEventListener('mouseenter', event => {
-      const children = [...this.element.children]
-      children.forEach(child => {
-        if (child.querySelector('input[type="submit"]')) {
-          child.querySelector('input[type="submit"]').style.visibility = 'visible'
+    if (this.options.showDeleteButton) {
+      this.element.addEventListener('mouseenter', event => {
+        const children = [...this.element.children]
+        children.forEach(child => {
+          if (child.querySelector('input[type="submit"]')) {
+            child.querySelector('input[type="submit"]').style.visibility = 'visible'
+          }
+        })
+      })
+
+      this.element.addEventListener('mouseleave', event => {
+        const children = [...this.element.children]
+        children.forEach(child => {
+          if (child.querySelector('input[type="submit"]')) {
+            child.querySelector('input[type="submit"]').style.visibility = 'hidden'
+          }
+        })
+      })
+
+      this.element.addEventListener('mousedown', event => {
+        if (event.target.tagName === 'INPUT' && event.target.getAttribute('type') === 'submit') {
+          this.element.removeChild(event.target.parentElement)
+          this.listSize--
+          if (inputCount(this) < 1) {
+            this.addListItem()
+          }
         }
       })
-    })
-
-    this.element.addEventListener('mouseleave', event => {
-      const children = [...this.element.children]
-      children.forEach(child => {
-        if (child.querySelector('input[type="submit"]')) {
-          child.querySelector('input[type="submit"]').style.visibility = 'hidden'
-        }
-      })
-    })
-
-    this.element.addEventListener('mousedown', event => {
-      if (event.target.tagName === 'INPUT' && event.target.getAttribute('type') === 'submit') {
-        this.element.removeChild(event.target.parentElement)
-        if (inputCount(this) < 1) {
-          this.addListItem()
-        }
-      }
-    })
+    }
   }
 
   /* === Helper Functions === */
@@ -155,19 +159,20 @@
     }
   }
 
-  function turnToList (input) {
+  function turnToList (input, listObj) {
     // Turns the active input to a list element
-    console.log('turning to list')
     const li = input.parentElement
     li.removeChild(input)
     li.appendChild(document.createTextNode(input.value))
-    li.appendChild(getDeleteButton())
+    if (listObj.options.showDeleteButton) {
+      li.appendChild(getDeleteButton())
+    }
   }
 
   function turnToInput (li, listObj) {
     const input = getInputElement(listObj)
     const button = li.querySelector('input[type="submit"]')
-    if (button) {
+    if (listObj.options.showDeleteButton && button) {
       li.removeChild(button)
     }
     input.value = li.innerText
@@ -268,7 +273,7 @@
       for (let i = 0; i < data.length; i++) {
         this.addListItem()
         this.element.lastElementChild.firstChild.value = data[i]
-        turnToList(this.element.lastElementChild.firstChild)
+        turnToList(this.element.lastElementChild.firstChild, this)
       }
     },
 
@@ -319,7 +324,7 @@
     },
 
     handleDragStart: function (event) {
-      if (event.target.firstElementChild.getAttribute('type') === 'text') {
+      if (event.target.firstElementChild && event.target.firstElementChild.getAttribute('type') === 'text') {
         event.preventDefault()
       } else {
         event.target.classList.add('dragging')
@@ -375,7 +380,7 @@
     MLA: {
       'line-height': '2em',
       background: 'white',
-      color: 'black',
+      color: 'black'
     },
 
     PuTTY: {

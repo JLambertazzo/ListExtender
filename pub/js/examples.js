@@ -6,7 +6,7 @@ headerList.addFromArray(['It\'s intuitive for end users!', 'It\'s easy to implem
 headerList.addListItem()
 headerList.appendTo('#header')
 
-const groceryList = new ListExtender({ isUnordered: false, allowReorder: false })
+const groceryList = new ListExtender({ isUnordered: false, showDeleteButton: true })
 groceryList.setPlaceholder('Add an item here')
 groceryList.addListItem()
 groceryList.addValidation(value => {
@@ -18,8 +18,9 @@ groceryList.addValidation(value => {
   }
   return true
 }, 'Duplicates not allowed')
-groceryList.addValidation(value => value.substring(0,1).match(/[A-Z]/), 'Entry must start with capital letter')
+groceryList.addValidation(value => value.substring(0, 1).match(/[A-Z]/), 'Entry must start with capital letter')
 groceryList.appendTo('#example1')
+groceryList.setTheme(groceryList.cream)
 
 const skillList = new ListExtender()
 skillList.setPlaceholder('add a skill')
@@ -28,7 +29,7 @@ skillList.addListItem()
 skillList.appendTo('#employerSide')
 skillList.setTheme(skillList.emoji)
 
-const academicList = new ListExtender()
+const academicList = new ListExtender({ allowReorder: false })
 academicList.setPlaceholder('School: Major (yyyy-mm : yyyy-mm)')
 academicList.addListItem()
 academicList.addValidation(value => {
