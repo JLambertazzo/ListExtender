@@ -29,6 +29,10 @@
 
     this.element.addEventListener('focusout', event => {
       // Validate, and turn to list.
+      if (event.target.getAttribute('type') === 'submit') {
+        // ignore submit item
+        return
+      }
       if (event.target.parentElement.nextSibling || event.target.value !== '') {
         if (canRemove(event.target, this) && this.listSize > 1) {
           this.element.removeChild(event.target.parentElement)
@@ -74,6 +78,7 @@
     */
     if (this.options.allowReorder) {
       this.element.addEventListener('dragover', event => {
+        console.log('in here')
         event.preventDefault()
         const dragging = document.querySelector('.dragging')
         if (!this.element.contains(dragging)) {
@@ -96,6 +101,33 @@
         }
       })
     }
+
+    this.element.addEventListener('mouseenter', event => {
+      const children = [...this.element.children]
+      children.forEach(child => {
+        if (child.querySelector('input[type="submit"]')) {
+          child.querySelector('input[type="submit"]').style.visibility = 'visible'
+        }
+      })
+    })
+
+    this.element.addEventListener('mouseleave', event => {
+      const children = [...this.element.children]
+      children.forEach(child => {
+        if (child.querySelector('input[type="submit"]')) {
+          child.querySelector('input[type="submit"]').style.visibility = 'hidden'
+        }
+      })
+    })
+
+    this.element.addEventListener('mousedown', event => {
+      if (event.target.tagName === 'INPUT' && event.target.getAttribute('type') === 'submit') {
+        this.element.removeChild(event.target.parentElement)
+        if (inputCount(this) < 1) {
+          this.addListItem()
+        }
+      }
+    })
   }
 
   /* === Helper Functions === */
@@ -125,13 +157,19 @@
 
   function turnToList (input) {
     // Turns the active input to a list element
+    console.log('turning to list')
     const li = input.parentElement
     li.removeChild(input)
     li.appendChild(document.createTextNode(input.value))
+    li.appendChild(getDeleteButton())
   }
 
   function turnToInput (li, listObj) {
     const input = getInputElement(listObj)
+    const button = li.querySelector('input[type="submit"]')
+    if (button) {
+      li.removeChild(button)
+    }
     input.value = li.innerText
     li.removeChild(li.firstChild)
     li.appendChild(input)
@@ -151,15 +189,25 @@
 
   function canRemove (input, listObj) {
     // allow deleting if input is empty and list has 2+ inputs
+    return (input.value === '') && inputCount(listObj) >= 2
+  }
+
+  function inputCount (listObj) {
     const children = [...listObj.element.children]
-    const numInputs = children.reduce((numInputs, child) => {
-      if (child.firstElementChild) {
+    return children.reduce((numInputs, child) => {
+      if (child.firstElementChild && child.firstElementChild.getAttribute('type') !== 'submit') {
         return ++numInputs
       }
       return numInputs
     }, 0)
-    
-    return (input.value === '') && numInputs >= 2
+  }
+
+  function getDeleteButton () {
+    const button = document.createElement('INPUT')
+    button.setAttribute('type', 'submit')
+    button.setAttribute('value', 'DEL')
+    button.setAttribute('style', 'background: firebrick; color: white; font-size: 0.7em; visibility: hidden; float: right; border: none;')
+    return button
   }
   /* ========================= */
 
@@ -271,7 +319,7 @@
     },
 
     handleDragStart: function (event) {
-      if (event.target.firstElementChild) {
+      if (event.target.firstElementChild.getAttribute('type') === 'text') {
         event.preventDefault()
       } else {
         event.target.classList.add('dragging')
