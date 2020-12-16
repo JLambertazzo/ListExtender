@@ -248,7 +248,6 @@
       const input = getInputElement(this)
       li.appendChild(input)
       li.setAttribute('key', this.listSize)
-      li.style.justifyContent = 'space-between'
       if (this.options.allowReorder) {
         li.setAttribute('draggable', true)
         li.addEventListener('dragstart', this.handleDragStart)
@@ -320,7 +319,7 @@
     },
 
     handleDragStart: function (event) {
-      if (event.target.firstElementChild) {
+      if (event.target.firstElementChild.getAttribute('type') === 'text') {
         event.preventDefault()
       } else {
         event.target.classList.add('dragging')

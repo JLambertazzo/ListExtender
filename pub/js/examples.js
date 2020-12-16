@@ -6,7 +6,7 @@ headerList.addFromArray(['It\'s intuitive for end users!', 'It\'s easy to implem
 headerList.addListItem()
 headerList.appendTo('#header')
 
-const groceryList = new ListExtender({ isUnordered: false, allowReorder: true })
+const groceryList = new ListExtender({ isUnordered: false, allowReorder: false })
 groceryList.setPlaceholder('Add an item here')
 groceryList.addListItem()
 groceryList.addValidation(value => {
