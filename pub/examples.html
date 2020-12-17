@@ -4,8 +4,47 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="img/icon.png">
   <script defer type="text/javascript" src="js/ListExtender.js"></script>
+  <script defer type="text/javascript" src="js/examples.js"></script>
 </head>
 <body>
   <h1>Examples</h1>
+  <div id="simpleList">
+    <h4>A basic extending list</h4>
+    <p>Enter text to expand the list, drag and drop to rearrange, double click to modify</p>
+  </div>
+  <div id="themeList">
+    <h4>Try a few of the built-in styles for expanding lists!</h4>
+    <div id="themeButtons" onclick="setTheme(event)">
+      <button theme="simpleLight">Simple Light Theme</button>
+      <button theme="simpleDark">Simple Dark Theme</button>
+      <button theme="underwater">Underwater Theme</button>
+      <button theme="hacker">Hacker Theme</button>
+    </div>
+  </div>
+  <div id="deleteButton">
+    <h4>Lists have an optional delete button that shows on hover</h4>
+    <p>Without button present, delete items by clearing the text of an input</p>
+  </div>
+  <div id="validationOne">
+    <h4>ListExtender makes it easy to validate inputs</h4>
+    <p>The following list accepts dates in the following formats: 2020-12-19, 12/19/2020, 19122020</p>
+  </div>
+  <div id="validationTwo">
+    <h4>ListExtender allows for more complex validation as well!</h4>
+    <p>The following list does not accept duplicate entries</p>
+  </div>
+  <div id="addItems">
+    <h4>It's easy to add items to the list!</h4>
+    <p>Type text in the input box below, each word will be added to the list</p>
+    <form onsubmit="handleSubmit(event)">
+      <input type="text" required />
+      <input type="submit" value="Add to List" />
+    </form>
+  </div>
+  <div id="getItems">
+    <h4>It's easy to get items from the list!</h4>
+    <p>The items given in the list are: </p>
+    <button onclick="handleGetItems(event)">Click Me!</button>
+  </div>
 </body>
 </html>

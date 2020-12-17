@@ -60,7 +60,8 @@
 
     this.element.addEventListener('input', event => {
       // if all inputs are valid, add another to list
-      const inputs = this.element.querySelectorAll('input')
+      let inputs = [...this.element.querySelectorAll('input')]
+      inputs = inputs.filter(element => element.getAttribute('type') !== 'submit')
       for (let i = 0; i < inputs.length; i++) {
         if (!customChecks(inputs[i], this) ||
         !inputs[i].checkValidity()) {
@@ -374,7 +375,7 @@
     underwater: {
       background: 'blue',
       color: 'aquamarine',
-      'list-style': '\'~\''
+      'list-style': 'inside \'~~~\''
     },
 
     MLA: {
