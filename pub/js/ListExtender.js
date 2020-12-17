@@ -219,7 +219,9 @@
 
   ListExtender.prototype = {
     setInputType: function (type) {
-      this.attr.type = type
+      if (type !== 'submit') {
+        this.attr.type = type
+      }
     },
 
     setPlaceholder: function (placeholder) {
