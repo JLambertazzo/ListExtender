@@ -3,12 +3,12 @@
 const simpleList = new ListExtender()
 simpleList.setPlaceholder('Type here!')
 simpleList.addListItem()
-simpleList.appendTo('#simpleList')
+simpleList.addAfter('#simpleList p')
 
 const themeList = new ListExtender()
 themeList.setPlaceholder('Type here!')
 themeList.addListItem()
-themeList.appendTo('#themeList')
+themeList.addBefore('#themeList details')
 
 const setTheme = event => {
   themeList.setTheme(themeList[event.target.getAttribute('theme')])
@@ -17,7 +17,7 @@ const setTheme = event => {
 const deleteList = new ListExtender({ showDeleteButton: true })
 deleteList.setPlaceholder('Type Here!')
 deleteList.addListItem()
-deleteList.appendTo('#deleteButton')
+deleteList.addAfter('#deleteButton p')
 
 const validateOne = new ListExtender({ showDeleteButton: true })
 validateOne.setPlaceholder('yyyy-mm-dd || mm/dd/yyyy || ddmmyyyy')
@@ -27,7 +27,7 @@ validateOne.addValidation(value => {
   (value.match(/\d{2}\/\d{2}\/\d{4}/) && value.match(/\d{2}\/\d{2}\/\d{4}/)[0] === value) || 
   (value.match(/\d{8}/) && value.match(/\d{8}/)[0] === value)
 }, 'Please follow specified format!!')
-validateOne.appendTo('#validationOne')
+validateOne.addAfter('#validationOne p')
 
 const validateTwo = new ListExtender()
 validateTwo.setPlaceholder('Type Here!')
@@ -41,12 +41,12 @@ validateTwo.addValidation(value => {
   }
   return true
 }, 'Duplicates not allowed!')
-validateTwo.appendTo('#validationTwo')
+validateTwo.addAfter('#validationTwo p')
 
 const addItems = new ListExtender()
 addItems.setPlaceholder('Use form above!')
 addItems.addListItem()
-addItems.appendTo('#addItems')
+addItems.addAfter('#addItems form')
 
 const handleSubmit = event => {
   event.preventDefault()
@@ -58,7 +58,7 @@ const handleSubmit = event => {
 const getItems = new ListExtender()
 getItems.setPlaceholder('Type Here!')
 getItems.addListItem()
-getItems.addAfter('#getItems details')
+getItems.addAfter('#getItems h3')
 
 const handleGetItems = event => {
   const p = event.target.previousElementSibling

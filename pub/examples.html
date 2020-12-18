@@ -14,137 +14,139 @@
       <button><a href="/documentation">Documentation</a></button>
     </div>
   </nav>
-  <h1>Examples</h1>
-  <div class="card" id="simpleList">
-    <h3>A basic extending list</h3>
-    <p>Enter text to expand the list, drag and drop to rearrange, double click to modify</p>
-    <details>
-      <summary>Source Code</summary>
-      <code><pre>
-        const simpleList = new ListExtender()
-        simpleList.setPlaceholder('Type here!')
-        simpleList.addListItem()
-        simpleList.appendTo('#simpleList')
-      </pre></code>
-    </details>
-  </div>
-  <div class="card" id="themeList">
-    <h3>Try a few of the built-in styles for expanding lists!</h3>
-    <div id="themeButtons" onclick="setTheme(event)">
-      <button theme="simpleLight">Simple Light Theme</button>
-      <button theme="simpleDark">Simple Dark Theme</button>
-      <button theme="underwater">Underwater Theme</button>
-      <button theme="hacker">Hacker Theme</button>
+  <div id="examples">
+    <h1>Examples</h1>
+    <div class="card" id="simpleList">
+      <h3>A basic extending list</h3>
+      <p>Enter text to expand the list, drag and drop to rearrange, double click to modify</p>
+      <details>
+        <summary>Source Code</summary>
+        <code><pre>
+          const simpleList = new ListExtender()
+          simpleList.setPlaceholder('Type here!')
+          simpleList.addListItem()
+          simpleList.appendTo('#simpleList')
+        </pre></code>
+      </details>
     </div>
-    <details>
-      <summary>Source Code</summary>
-      <code><pre>
-        const themeList = new ListExtender()
-        themeList.setPlaceholder('Type here!')
-        themeList.addListItem()
-        themeList.appendTo('#themeList')
-
-        const setTheme = event => {themeList.setTheme(themeList[event.target.getAttribute('theme')])}
-      </pre></code>
-    </details>
-  </div>
-  <div class="card" id="deleteButton">
-    <h3>Lists have an optional delete button that shows on hover</h3>
-    <p>Without button present, delete items by clearing the text of an input</p>
-    <details>
-      <summary>Source Code</summary>
-      <code><pre>
-        const deleteList = new ListExtender({ showDeleteButton: true })
-        deleteList.setPlaceholder('Type Here!')
-        deleteList.addListItem()
-        deleteList.appendTo('#deleteButton')
-      </pre></code>
-    </details>
-  </div>
-  <div class="card" id="validationOne">
-    <h3>ListExtender makes it easy to validate inputs</h3>
-    <p>The following list accepts dates in the following formats: 2020-12-19, 12/19/2020, 19122020</p>
-    <details>
-      <summary>Source Code</summary>
-      <code><pre>
-        const validateOne = new ListExtender({ showDeleteButton: true })
-        validateOne.setPlaceholder('yyyy-mm-dd || mm/dd/yyyy || ddmmyyyy')
-        validateOne.addListItem()
-        validateOne.addValidation(value => {
-          return (value.match(/\d{4}-\d{2}-\d{2}/) && value.match(/\d{4}-\d{2}-\d{2}/)[0] === value) ||
-          (value.match(/\d{2}\/\d{2}\/\d{4}/) && value.match(/\d{2}\/\d{2}\/\d{4}/)[0] === value) || 
-          (value.match(/\d{8}/) && value.match(/\d{8}/)[0] === value)
-        }, 'Please follow specified format!!')
-        validateOne.appendTo('#validationOne')
-      </pre></code>
-    </details>
-  </div>
-  <div class="card" id="validationTwo">
-    <h3>ListExtender allows for more complex validation as well!</h3>
-    <p>The following list does not accept duplicate entries</p>
-    <details>
-      <summary>Source Code</summary>
-      <code><pre>
-        const validateTwo = new ListExtender()
-        validateTwo.setPlaceholder('Type Here!')
-        validateTwo.addListItem()
-        validateTwo.addValidation(value => {
-          const vals = validateTwo.getData()
-          for (let i = 0; i < vals.length; i++) {
-            if (vals[i] === value) {
-              return false
+    <div class="card" id="themeList">
+      <h3>Try a few of the built-in styles for expanding lists!</h3>
+      <div id="themeButtons" onclick="setTheme(event)">
+        <button theme="simpleLight">Simple Light Theme</button>
+        <button theme="simpleDark">Simple Dark Theme</button>
+        <button theme="underwater">Underwater Theme</button>
+        <button theme="hacker">Hacker Theme</button>
+      </div>
+      <details>
+        <summary>Source Code</summary>
+        <code><pre>
+          const themeList = new ListExtender()
+          themeList.setPlaceholder('Type here!')
+          themeList.addListItem()
+          themeList.appendTo('#themeList')
+  
+          const setTheme = event => {themeList.setTheme(themeList[event.target.getAttribute('theme')])}
+        </pre></code>
+      </details>
+    </div>
+    <div class="card" id="deleteButton">
+      <h3>Lists have an optional delete button that shows on hover</h3>
+      <p>Without button present, delete items by clearing the text of an input</p>
+      <details>
+        <summary>Source Code</summary>
+        <code><pre>
+          const deleteList = new ListExtender({ showDeleteButton: true })
+          deleteList.setPlaceholder('Type Here!')
+          deleteList.addListItem()
+          deleteList.appendTo('#deleteButton')
+        </pre></code>
+      </details>
+    </div>
+    <div class="card" id="validationOne">
+      <h3>ListExtender makes it easy to validate inputs</h3>
+      <p>The following list accepts dates in the following formats: 2020-12-19, 12/19/2020, 19122020</p>
+      <details>
+        <summary>Source Code</summary>
+        <code><pre>
+          const validateOne = new ListExtender({ showDeleteButton: true })
+          validateOne.setPlaceholder('yyyy-mm-dd || mm/dd/yyyy || ddmmyyyy')
+          validateOne.addListItem()
+          validateOne.addValidation(value => {
+            return (value.match(/\d{4}-\d{2}-\d{2}/) && value.match(/\d{4}-\d{2}-\d{2}/)[0] === value) ||
+            (value.match(/\d{2}\/\d{2}\/\d{4}/) && value.match(/\d{2}\/\d{2}\/\d{4}/)[0] === value) || 
+            (value.match(/\d{8}/) && value.match(/\d{8}/)[0] === value)
+          }, 'Please follow specified format!!')
+          validateOne.appendTo('#validationOne')
+        </pre></code>
+      </details>
+    </div>
+    <div class="card" id="validationTwo">
+      <h3>ListExtender allows for more complex validation as well!</h3>
+      <p>The following list does not accept duplicate entries</p>
+      <details>
+        <summary>Source Code</summary>
+        <code><pre>
+          const validateTwo = new ListExtender()
+          validateTwo.setPlaceholder('Type Here!')
+          validateTwo.addListItem()
+          validateTwo.addValidation(value => {
+            const vals = validateTwo.getData()
+            for (let i = 0; i < vals.length; i++) {
+              if (vals[i] === value) {
+                return false
+              }
             }
+            return true
+          }, 'Duplicates not allowed!')
+          validateTwo.appendTo('#validationTwo')
+        </pre></code>
+      </details>
+    </div>
+    <div class="card" id="addItems">
+      <h3>It's easy to add items to the list!</h3>
+      <p>Type text in the input box below, each word will be added to the list</p>
+      <form onsubmit="handleSubmit(event)">
+        <input type="text" required />
+        <input type="submit" value="Add to List" />
+      </form>
+      <details>
+        <summary>Source Code</summary>
+        <code><pre>
+          const addItems = new ListExtender()
+          addItems.setPlaceholder('Use form above!')
+          addItems.addListItem()
+          addItems.appendTo('#addItems')
+  
+          const handleSubmit = event => {
+            event.preventDefault()
+            const items = event.target.firstElementChild.value.split(' ').filter(val => val !== '')
+            addItems.addFromArray(items)
+            event.target.firstElementChild.value = ''
           }
-          return true
-        }, 'Duplicates not allowed!')
-        validateTwo.appendTo('#validationTwo')
-      </pre></code>
-    </details>
-  </div>
-  <div class="card" id="addItems">
-    <h3>It's easy to add items to the list!</h3>
-    <p>Type text in the input box below, each word will be added to the list</p>
-    <details>
-      <summary>Source Code</summary>
-      <code><pre>
-        const addItems = new ListExtender()
-        addItems.setPlaceholder('Use form above!')
-        addItems.addListItem()
-        addItems.appendTo('#addItems')
-
-        const handleSubmit = event => {
-          event.preventDefault()
-          const items = event.target.firstElementChild.value.split(' ').filter(val => val !== '')
-          addItems.addFromArray(items)
-          event.target.firstElementChild.value = ''
-        }
-      </pre></code>
-    </details>
-    <form onsubmit="handleSubmit(event)">
-      <input type="text" required />
-      <input type="submit" value="Add to List" />
-    </form>
-  </div>
-  <div class="card" id="getItems">
-    <h3>It's easy to get items from the list!</h3>
-    <details>
-      <summary>Source Code</summary>
-      <code><pre>
-        const getItems = new ListExtender()
-        getItems.setPlaceholder('Type Here!')
-        getItems.addListItem()
-        getItems.addAfter('#getItems code')
-
-        const handleGetItems = event => {
-          const p = event.target.previousElementSibling
-          p.innerText = ''
-          const data = getItems.getData()
-          p.appendChild(document.createTextNode(`The items given in the list are: ${data.toString()}`))
-        }
-      </pre></code>
-    </details>
-    <p>The items given in the list are: </p>
-    <button onclick="handleGetItems(event)">Click Me!</button>
+        </pre></code>
+      </details>
+    </div>
+    <div class="card" id="getItems">
+      <h3>It's easy to get items from the list!</h3>
+      <p>The items given in the list are: </p>
+      <button onclick="handleGetItems(event)">Click Me!</button>
+      <details>
+        <summary>Source Code</summary>
+        <code><pre>
+          const getItems = new ListExtender()
+          getItems.setPlaceholder('Type Here!')
+          getItems.addListItem()
+          getItems.addAfter('#getItems code')
+  
+          const handleGetItems = event => {
+            const p = event.target.previousElementSibling
+            p.innerText = ''
+            const data = getItems.getData()
+            p.appendChild(document.createTextNode(`The items given in the list are: ${data.toString()}`))
+          }
+        </pre></code>
+      </details>
+    </div>
   </div>
 </body>
 </html>

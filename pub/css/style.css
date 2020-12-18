@@ -5,7 +5,6 @@ body {
     margin: 0px;
     color: #212529;
     background-color: #F8F9FA;
-    justify-content: center;
 }
 
 #hero {
@@ -70,6 +69,7 @@ button:focus {
 }
 
 code, pre, details {
+    margin: 5px;
     cursor: default;
     font-family: inherit;
     background-color: #495057;
@@ -77,7 +77,7 @@ code, pre, details {
 }
 
 summary {
-    background-color: #F8F9FA;
+    background-color: #E9ECEF;
     color: #212529;
 }
 
@@ -86,8 +86,33 @@ summary:focus {
     cursor: default;
 }
 
-.card {
+summary:hover {
+    text-decoration: underline;
+}
 
+#examples {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+#examples p {
+    color: #495057;
+}
+
+#examples ul, #examples ol {
+    width: 40%;
+}
+
+.card {
+    width: 80%;
+    padding: 10px;
+    box-shadow: #DEE2E6 0px 0px 2px 2px;
+    margin: 10px;
+    padding: 30px;
+    border-radius: 15px;
 }
 
 ul {
