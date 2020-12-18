@@ -5,6 +5,7 @@ body {
     margin: 0px;
     color: #212529;
     background-color: #F8F9FA;
+    justify-content: center;
 }
 
 #hero {
@@ -54,9 +55,39 @@ nav h3:hover {
 
 nav button {
     margin-left: 6px;
+}
+
+button {
     border: none;
-    padding: 7px;
     font-family: inherit;
+    padding: 7px;
+    background-color: #DEE2E6;
+}
+
+button:focus {
+    outline: none;
+    background-color: #CED4DA;
+}
+
+code, pre, details {
+    cursor: default;
+    font-family: inherit;
+    background-color: #495057;
+    color: #E9ECEF;
+}
+
+summary {
+    background-color: #F8F9FA;
+    color: #212529;
+}
+
+summary:focus {
+    outline: none;
+    cursor: default;
+}
+
+.card {
+
 }
 
 ul {

@@ -58,7 +58,7 @@ const handleSubmit = event => {
 const getItems = new ListExtender()
 getItems.setPlaceholder('Type Here!')
 getItems.addListItem()
-getItems.addAfter('#getItems code')
+getItems.addAfter('#getItems details')
 
 const handleGetItems = event => {
   const p = event.target.previousElementSibling
