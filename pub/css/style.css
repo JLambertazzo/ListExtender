@@ -72,7 +72,7 @@ code, pre, details {
     margin: 5px;
     cursor: default;
     font-family: inherit;
-    background-color: #495057;
+    background-color: #0B101A;
     color: #E9ECEF;
 }
 
@@ -106,6 +106,12 @@ summary:hover {
     width: 40%;
 }
 
+#documentation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .card {
     width: 80%;
     padding: 10px;
@@ -127,8 +133,28 @@ input:focus {
     outline: none;
 }
 
-table, th, td {
-    border: 1px solid #495057;
+table {
+    box-shadow: #E9ECEF 0px 0px 2px 2px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+/*
+      Title: CSS Table Style
+      Author: w3schools.com
+      Date: n.d.
+      Availability: https://www.w3schools.com/css/css_table_style.asp
+*/
+tr:nth-child(even) {background-color: #E9ECEF;}
+
+th {
+    background-color: #7E97C9;
+    text-align: left;
+    padding: 15px;
+}
+
+td {
+    padding: 15px;
 }
 
 

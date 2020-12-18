@@ -7,208 +7,216 @@
 </head>
 <body>
   <nav>
-    <h3><a href="/">ListExtender.js</a></h3>
+    <a href="/"><h3>ListExtender.js</h3></a>
     <div id="nav-buttons">
-      <button><a href="/examples">Examples</a></button>
-      <button><a href="/documentation">Documentation</a></button>
+      <a href="/examples"><button>Examples</button></a>
+      <a href="/documentation"><button>Documentation</button></a>
     </div>
   </nav>
-  <h1>Documentation</h1>
-  <div id='gettingStarted'>
-    <h1>Getting Started</h1>
-    <p>The first step is to import ListExtender.js and any javascript using ListExtender into your html file. Make sure you
-      import it before any javascript files that depend on it.</p>
-    <code>&ltscript defer type='text/javascript' src='js/ListExtender.js'&gt&lt/script&gt<br/>
-      &ltscript defer type='text/javascript' src='js/myScript.js'&gt&lt/script&gt</code>
-    <p>The next step is to create your ListExtender object.</p>
-    <code>const myList = new ListExtender()</code>
-    <p>Next, add a placeholder for your input elements and a new input element to your list object.</p>
-    <code>myList.setPlaceholder('Placeholder Text')<br/>myList.addListItem()</code>
-    <p>Finally, append your list to some parent container in the DOM</p>
-    <code>myList.appendTo('#containerId')</code>
-  </div>
-  <div id='api'>
-    <h1>API</h1>
-    <div id='constructor'>
-      <h3>Constructor:</h3>
-      <code>new ListExtender(options)</code>
-      <p>The ListExtender constructor takes an optional parameter, which is an options object. The properties of the options parameter determine the behaviour of the list.</p>
-      <p>The options object uses the following properties:</p>
-      <table>
-        <tr>
-          <th>Property</th>
-          <th>Default Value</th>
-          <th>Effect</th>
-        </tr>
-        <tr>
-          <td>isUnordered</td>
-          <td>true</td>
-          <td>Determines whether the list is unordered or not</td>
-        </tr>
-        <tr>
-          <td>allowReorder</td>
-          <td>true</td>
-          <td>Determines whether users can drag and drop list items</td>
-        </tr>
-        <tr>
-          <td>showDeleteButton</td>
-          <td>false</td>
-          <td>Determines whether the delete button shows on the list</td>
-        </tr>
-      </table>
-      <p>All properties are optional and if not included will be replaced with the default value.</p>
+  <div id="documentation">
+    <h1>Documentation</h1>
+    <div class="card" id='gettingStarted'>
+      <h1>Getting Started</h1>
+      <p>The first step is to import ListExtender.js and any javascript using ListExtender into your html file. Make sure you
+        import it before any javascript files that depend on it.</p>
+      <code><pre>
+        &ltscript defer type='text/javascript' src='js/ListExtender.js'&gt&lt/script&gt
+        &ltscript defer type='text/javascript' src='js/myScript.js'&gt&lt/script&gt</pre></code>
+      <p>The next step is to create your ListExtender object.</p>
+      <code><pre>
+        const myList = new ListExtender()</pre></code>
+      <p>Next, add a placeholder for your input elements and a new input element to your list object.</p>
+      <code><pre>
+        myList.setPlaceholder('Placeholder Text')
+        myList.addListItem()</pre></code>
+      <p>Finally, append your list to some parent container in the DOM</p>
+      <code><pre>
+        myList.appendTo('#containerId')</pre></code>
     </div>
-    <div id='variables'>
-      <h3>Variables:</h3>
-      <table>
-        <tr>
-          <th>Name</th>
-          <th>Description</th>
-        </tr>
-        <tr>
-          <td>maxSize</td>
-          <td>The maximum number of entries in the list</td>
-        </tr>
-        <tr>
-          <td>simpleLight</td>
-          <td>A light theme for list objects</td>
-        </tr>
-        <tr>
-          <td>simpleDark</td>
-          <td>A dark theme for list objects</td>
-        </tr>
-        <tr>
-          <td>cream</td>
-          <td>A light brown theme for list objects</td>
-        </tr>
-        <tr>
-          <td>hacker</td>
-          <td>A dark/lime theme for list objects</td>
-        </tr>
-        <tr>
-          <td>underwater</td>
-          <td>A blue theme for list objects</td>
-        </tr>
-        <tr>
-          <td>MLA</td>
-          <td>A simple double spaced theme for list objects</td>
-        </tr>
-        <tr>
-          <td>PuTTY</td>
-          <td>A shell theme for list objects</td>
-        </tr>
-        <tr>
-          <td>emoji</td>
-          <td>A simple theme with emoji pointers for list objects</td>
-        </tr>
-      </table>
-    </div>
-    <div id='functions'>
-      <h3>Methods:</h3>
-      <table>
-        <tr>
-          <th>Method Name</th>
-          <th>Params</th>
-          <th>Returns</th>
-          <th>Description</th>
-        </tr>
-        <tr>
-          <td>setInputType(type)</td>
-          <td>type: string<br/>Can be 'text', 'email' etc.<br/>Does not accept 'submit'</td>
-          <td>none</td>
-          <td>Sets the input type of list elements</td>
-        </tr>
-        <tr>
-          <td>setPlaceholder(placeholder)</td>
-          <td>placeholder: string</td>
-          <td>none</td>
-          <td>Sets the input field placeholder for list elements</td>
-        </tr>
-        <tr>
-          <td>setMinLength(minLength)</td>
-          <td>minLength: number</td>
-          <td>none</td>
-          <td>Sets the input field minimum length for list elements</td>
-        </tr>
-        <tr>
-          <td>setMaxLength(maxLength)</td>
-          <td>maxLength: number</td>
-          <td>none</td>
-          <td>Sets the input field maximum length for list elements</td>
-        </tr>
-        <tr>
-          <td>setId(id)</td>
-          <td>id: string</td>
-          <td>none</td>
-          <td>Sets the id of the list object</td>
-        </tr>
-        <tr>
-          <td>addClasses(classList)</td>
-          <td>classList: array[string]</td>
-          <td>none</td>
-          <td>Applies the given classes to the list object</td>
-        </tr>
-        <tr>
-          <td>removeClasses(classList)</td>
-          <td>classList: array[string]</td>
-          <td>none</td>
-          <td>Removes the given classes from the list object</td>
-        </tr>
-        <tr>
-          <td>addListItem()</td>
-          <td>none</td>
-          <td>none</td>
-          <td>Adds a new item to the list</td>
-        </tr>
-        <tr>
-          <td>addValidation(callback, errorMessage)</td>
-          <td>callback: function(value: string), errorMessage: string<br/>errorMessage is optional, callback function will be passed a string</td>
-          <td>none</td>
-          <td>Adds a validation function to the list object. When validating, if function returns true validation will pass, else validation fails</td>
-        </tr>
-        <tr>
-          <td>addFromArray(data)</td>
-          <td>data: array[string]</td>
-          <td>none</td>
-          <td>Appends elements in data to the list</td>
-        </tr>
-        <tr>
-          <td>appendTo(query)</td>
-          <td>query: string<br/>A selector for querySelector</td>
-          <td>none</td>
-          <td>Appends the list to the element matching query</td>
-        </tr>
-        <tr>
-          <td>addBefore(query)</td>
-          <td>query: string<br/>A selector for querySelector</td>
-          <td>none</td>
-          <td>Places the list before the element matching query</td>
-        </tr>
-        <tr>
-          <td>addAfter(query)</td>
-          <td>query: string<br/>A selector for querySelector</td>
-          <td>none</td>
-          <td>Places the list after the element matching query</td>
-        </tr>
-        <tr>
-          <td>getData()</td>
-          <td>none</td>
-          <td>array[string]</td>
-          <td>Returns all validated entries in the list</td>
-        </tr>
-        <tr>
-          <td>getAllData()</td>
-          <td>none</td>
-          <td>array[string]</td>
-          <td>Returns all entries in the list</td>
-        </tr>
-        <tr>
-          <td>setTheme(theme)</td>
-          <td>theme: object<br/>A theme object (see variables above)</td>
-          <td>none</td>
-          <td>Sets the theme of the list to the given theme object</td>
-        </tr>
-      </table>
+    <div class="card" id='api'>
+      <h1>API</h1>
+      <div id='constructor'>
+        <h3>Constructor:</h3>
+        <code><pre>
+          new ListExtender(options)</pre></code>
+        <p>The ListExtender constructor takes an optional parameter, which is an options object. The properties of the options parameter determine the behaviour of the list.</p>
+        <p>The options object uses the following properties:</p>
+        <table>
+          <tr>
+            <th>Property</th>
+            <th>Default Value</th>
+            <th>Description</th>
+          </tr>
+          <tr>
+            <td>isUnordered</td>
+            <td>true</td>
+            <td>Determines whether the list is unordered or not</td>
+          </tr>
+          <tr>
+            <td>allowReorder</td>
+            <td>true</td>
+            <td>Determines whether users can drag and drop list items</td>
+          </tr>
+          <tr>
+            <td>showDeleteButton</td>
+            <td>false</td>
+            <td>Determines whether the delete button shows on the list</td>
+          </tr>
+        </table>
+        <p>All properties are optional and if not included will be replaced with the default value.</p>
+      </div>
+      <div id='variables'>
+        <h3>Variables:</h3>
+        <table>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+          </tr>
+          <tr>
+            <td>maxSize</td>
+            <td>The maximum number of entries in the list</td>
+          </tr>
+          <tr>
+            <td>simpleLight</td>
+            <td>A light theme for list objects</td>
+          </tr>
+          <tr>
+            <td>simpleDark</td>
+            <td>A dark theme for list objects</td>
+          </tr>
+          <tr>
+            <td>cream</td>
+            <td>A light brown theme for list objects</td>
+          </tr>
+          <tr>
+            <td>hacker</td>
+            <td>A dark/lime theme for list objects</td>
+          </tr>
+          <tr>
+            <td>underwater</td>
+            <td>A blue theme for list objects</td>
+          </tr>
+          <tr>
+            <td>MLA</td>
+            <td>A simple double spaced theme for list objects</td>
+          </tr>
+          <tr>
+            <td>PuTTY</td>
+            <td>A shell theme for list objects</td>
+          </tr>
+          <tr>
+            <td>emoji</td>
+            <td>A simple theme with emoji pointers for list objects</td>
+          </tr>
+        </table>
+      </div>
+      <div id='functions'>
+        <h3>Methods:</h3>
+        <table>
+          <tr>
+            <th>Method Name</th>
+            <th>Params</th>
+            <th>Returns</th>
+            <th>Description</th>
+          </tr>
+          <tr>
+            <td>setInputType(type)</td>
+            <td>type: string<br/>Can be 'text', 'email' etc.<br/>Does not accept 'submit'</td>
+            <td>none</td>
+            <td>Sets the input type of list elements</td>
+          </tr>
+          <tr>
+            <td>setPlaceholder(placeholder)</td>
+            <td>placeholder: string</td>
+            <td>none</td>
+            <td>Sets the input field placeholder for list elements</td>
+          </tr>
+          <tr>
+            <td>setMinLength(minLength)</td>
+            <td>minLength: number</td>
+            <td>none</td>
+            <td>Sets the input field minimum length for list elements</td>
+          </tr>
+          <tr>
+            <td>setMaxLength(maxLength)</td>
+            <td>maxLength: number</td>
+            <td>none</td>
+            <td>Sets the input field maximum length for list elements</td>
+          </tr>
+          <tr>
+            <td>setId(id)</td>
+            <td>id: string</td>
+            <td>none</td>
+            <td>Sets the id of the list object</td>
+          </tr>
+          <tr>
+            <td>addClasses(classList)</td>
+            <td>classList: array[string]</td>
+            <td>none</td>
+            <td>Applies the given classes to the list object</td>
+          </tr>
+          <tr>
+            <td>removeClasses(classList)</td>
+            <td>classList: array[string]</td>
+            <td>none</td>
+            <td>Removes the given classes from the list object</td>
+          </tr>
+          <tr>
+            <td>addListItem()</td>
+            <td>none</td>
+            <td>none</td>
+            <td>Adds a new item to the list</td>
+          </tr>
+          <tr>
+            <td>addValidation(callback, errorMessage)</td>
+            <td>callback: function(value: string), errorMessage: string<br/>errorMessage is optional, callback function will be passed a string</td>
+            <td>none</td>
+            <td>Adds a validation function to the list object. When validating, if function returns true validation will pass, else validation fails</td>
+          </tr>
+          <tr>
+            <td>addFromArray(data)</td>
+            <td>data: array[string]</td>
+            <td>none</td>
+            <td>Appends elements in data to the list</td>
+          </tr>
+          <tr>
+            <td>appendTo(query)</td>
+            <td>query: string<br/>A selector for querySelector</td>
+            <td>none</td>
+            <td>Appends the list to the element matching query</td>
+          </tr>
+          <tr>
+            <td>addBefore(query)</td>
+            <td>query: string<br/>A selector for querySelector</td>
+            <td>none</td>
+            <td>Places the list before the element matching query</td>
+          </tr>
+          <tr>
+            <td>addAfter(query)</td>
+            <td>query: string<br/>A selector for querySelector</td>
+            <td>none</td>
+            <td>Places the list after the element matching query</td>
+          </tr>
+          <tr>
+            <td>getData()</td>
+            <td>none</td>
+            <td>array[string]</td>
+            <td>Returns all validated entries in the list</td>
+          </tr>
+          <tr>
+            <td>getAllData()</td>
+            <td>none</td>
+            <td>array[string]</td>
+            <td>Returns all entries in the list</td>
+          </tr>
+          <tr>
+            <td>setTheme(theme)</td>
+            <td>theme: object<br/>A theme object (see variables above)</td>
+            <td>none</td>
+            <td>Sets the theme of the list to the given theme object</td>
+          </tr>
+        </table>
+      </div>
     </div>
   </div>
 </body>
