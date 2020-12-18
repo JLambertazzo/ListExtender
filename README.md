@@ -14,7 +14,6 @@ const myList = new ListExtender()
 3. Set the input placeholder text and add an input to the list element
 ```javascript
 myList.setPlaceholder('Placeholder Text')
-myList.addListItem()
 ```
 4. Append your list to some parent container in the DOM
 ```javascript

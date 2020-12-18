@@ -60,8 +60,7 @@
 
     this.element.addEventListener('input', event => {
       // if all inputs are valid, add another to list
-      let inputs = [...this.element.querySelectorAll('input')]
-      inputs = inputs.filter(element => element.getAttribute('type') !== 'submit')
+      const inputs = [...this.element.querySelectorAll('input')].filter(element => element.getAttribute('type') !== 'submit')
       for (let i = 0; i < inputs.length; i++) {
         if (!customChecks(inputs[i], this) ||
         !inputs[i].checkValidity()) {
@@ -133,6 +132,8 @@
         }
       })
     }
+
+    this.addListItem()
   }
 
   /* === Helper Functions === */
@@ -221,19 +222,35 @@
     setInputType: function (type) {
       if (type !== 'submit') {
         this.attr.type = type
+        const inputs = [...this.element.querySelectorAll('input')].filter(element => element.getAttribute('type') !== 'submit')
+        inputs.forEach(input => {
+          input.setAttribute('type', type)
+        })
       }
     },
 
     setPlaceholder: function (placeholder) {
       this.attr.placeholder = placeholder
+      const inputs = [...this.element.querySelectorAll('input')].filter(element => element.getAttribute('type') !== 'submit')
+      inputs.forEach(input => {
+        input.setAttribute('placeholder', placeholder)
+      })
     },
 
     setMinLength: function (minLength) {
       this.attr.minLength = minLength
+      const inputs = [...this.element.querySelectorAll('input')].filter(element => element.getAttribute('type') !== 'submit')
+      inputs.forEach(input => {
+        input.setAttribute('minLength', minLength)
+      })
     },
 
     setMaxLength: function (maxLength) {
       this.attr.maxLength = maxLength
+      const inputs = [...this.element.querySelectorAll('input')].filter(element => element.getAttribute('type') !== 'submit')
+      inputs.forEach(input => {
+        input.setAttribute('maxLength', maxLength)
+      })
     },
 
     setId: function (id) {

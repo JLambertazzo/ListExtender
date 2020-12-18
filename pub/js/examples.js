@@ -2,12 +2,10 @@
 
 const simpleList = new ListExtender()
 simpleList.setPlaceholder('Type here!')
-simpleList.addListItem()
 simpleList.addAfter('#simpleList p')
 
 const themeList = new ListExtender()
 themeList.setPlaceholder('Type here!')
-themeList.addListItem()
 themeList.addBefore('#themeList details')
 
 const setTheme = event => {
@@ -16,12 +14,10 @@ const setTheme = event => {
 
 const deleteList = new ListExtender({ showDeleteButton: true })
 deleteList.setPlaceholder('Type Here!')
-deleteList.addListItem()
 deleteList.addAfter('#deleteButton p')
 
 const validateOne = new ListExtender({ showDeleteButton: true })
 validateOne.setPlaceholder('yyyy-mm-dd || mm/dd/yyyy || ddmmyyyy')
-validateOne.addListItem()
 validateOne.addValidation(value => {
   return (value.match(/\d{4}-\d{2}-\d{2}/) && value.match(/\d{4}-\d{2}-\d{2}/)[0] === value) ||
   (value.match(/\d{2}\/\d{2}\/\d{4}/) && value.match(/\d{2}\/\d{2}\/\d{4}/)[0] === value) || 
@@ -31,7 +27,6 @@ validateOne.addAfter('#validationOne p')
 
 const validateTwo = new ListExtender()
 validateTwo.setPlaceholder('Type Here!')
-validateTwo.addListItem()
 validateTwo.addValidation(value => {
   const vals = validateTwo.getData()
   for (let i = 0; i < vals.length; i++) {
@@ -45,7 +40,6 @@ validateTwo.addAfter('#validationTwo p')
 
 const addItems = new ListExtender()
 addItems.setPlaceholder('Use form above!')
-addItems.addListItem()
 addItems.addAfter('#addItems form')
 
 const handleSubmit = event => {
@@ -57,7 +51,6 @@ const handleSubmit = event => {
 
 const getItems = new ListExtender()
 getItems.setPlaceholder('Type Here!')
-getItems.addListItem()
 getItems.addAfter('#getItems h3')
 
 const handleGetItems = event => {
