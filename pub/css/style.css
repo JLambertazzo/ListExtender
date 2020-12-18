@@ -107,10 +107,6 @@ summary:hover {
     width: 40%;
 }
 
-#examples .card * {
-    margin-bottom: 25px;
-}
-
 #documentation {
     display: flex;
     flex-direction: column;
