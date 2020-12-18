@@ -74,6 +74,7 @@ code, pre, details {
     font-family: inherit;
     background-color: #0B101A;
     color: #E9ECEF;
+    display: block;
 }
 
 summary {
@@ -110,6 +111,11 @@ summary:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+#documentation code {
+    display: block;
+    width: fit-content;
 }
 
 .card {

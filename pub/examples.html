@@ -21,12 +21,12 @@
       <p>Enter text to expand the list, drag and drop to rearrange, double click to modify</p>
       <details>
         <summary>Source Code</summary>
-        <code><pre>
-const simpleList = new ListExtender()
-simpleList.setPlaceholder('Type here!')
-simpleList.addListItem()
-simpleList.appendTo('#simpleList')
-        </pre></code>
+        <code>
+          <pre>const simpleList = new ListExtender()</pre>
+          <pre>simpleList.setPlaceholder('Type here!')</pre>
+          <pre>simpleList.addListItem()</pre>
+          <pre>simpleList.appendTo('#simpleList')</pre>
+        </code>
       </details>
     </div>
     <div class="card" id="themeList">
@@ -39,14 +39,14 @@ simpleList.appendTo('#simpleList')
       </div>
       <details>
         <summary>Source Code</summary>
-        <code><pre>
-          const themeList = new ListExtender()
-          themeList.setPlaceholder('Type here!')
-          themeList.addListItem()
-          themeList.appendTo('#themeList')
+        <code>
+          <pre>const themeList = new ListExtender()</pre>
+          <pre>themeList.setPlaceholder('Type here!')</pre>
+          <pre>themeList.addListItem()</pre>
+          <pre>themeList.appendTo('#themeList')</pre><br>
   
-          const setTheme = event => {themeList.setTheme(themeList[event.target.getAttribute('theme')])}
-        </pre></code>
+          <pre>const setTheme = event => {themeList.setTheme(themeList[event.target.getAttribute('theme')])}</pre>
+        </code>
       </details>
     </div>
     <div class="card" id="deleteButton">
@@ -54,12 +54,12 @@ simpleList.appendTo('#simpleList')
       <p>Without button present, delete items by clearing the text of an input</p>
       <details>
         <summary>Source Code</summary>
-        <code><pre>
-          const deleteList = new ListExtender({ showDeleteButton: true })
-          deleteList.setPlaceholder('Type Here!')
-          deleteList.addListItem()
-          deleteList.appendTo('#deleteButton')
-        </pre></code>
+        <code>
+          <pre>const deleteList = new ListExtender({ showDeleteButton: true })</pre>
+          <pre>deleteList.setPlaceholder('Type Here!')</pre>
+          <pre>deleteList.addListItem()</pre>
+          <pre>deleteList.appendTo('#deleteButton')</pre>
+        </code>
       </details>
     </div>
     <div class="card" id="validationOne">
@@ -67,17 +67,17 @@ simpleList.appendTo('#simpleList')
       <p>The following list accepts dates in the following formats: 2020-12-19, 12/19/2020, 19122020</p>
       <details>
         <summary>Source Code</summary>
-        <code><pre>
-          const validateOne = new ListExtender({ showDeleteButton: true })
-          validateOne.setPlaceholder('yyyy-mm-dd || mm/dd/yyyy || ddmmyyyy')
-          validateOne.addListItem()
-          validateOne.addValidation(value => {
-            return (value.match(/\d{4}-\d{2}-\d{2}/) && value.match(/\d{4}-\d{2}-\d{2}/)[0] === value) ||
-            (value.match(/\d{2}\/\d{2}\/\d{4}/) && value.match(/\d{2}\/\d{2}\/\d{4}/)[0] === value) || 
-            (value.match(/\d{8}/) && value.match(/\d{8}/)[0] === value)
-          }, 'Please follow specified format!!')
-          validateOne.appendTo('#validationOne')
-        </pre></code>
+        <code>
+          <pre>const validateOne = new ListExtender({ showDeleteButton: true })</pre>
+          <pre>validateOne.setPlaceholder('yyyy-mm-dd || mm/dd/yyyy || ddmmyyyy')</pre>
+          <pre>validateOne.addListItem()</pre>
+          <pre>validateOne.addValidation(value => {</pre>
+          <pre>  return (value.match(/\d{4}-\d{2}-\d{2}/) && value.match(/\d{4}-\d{2}-\d{2}/)[0] === value) ||</pre>
+          <pre>  (value.match(/\d{2}\/\d{2}\/\d{4}/) && value.match(/\d{2}\/\d{2}\/\d{4}/)[0] === value) || </pre>
+          <pre>  (value.match(/\d{8}/) && value.match(/\d{8}/)[0] === value)</pre>
+          <pre>}, 'Please follow specified format!!')</pre>
+          <pre>validateOne.appendTo('#validationOne')</pre>
+        </code>
       </details>
     </div>
     <div class="card" id="validationTwo">
@@ -85,21 +85,21 @@ simpleList.appendTo('#simpleList')
       <p>The following list does not accept duplicate entries</p>
       <details>
         <summary>Source Code</summary>
-        <code><pre>
-          const validateTwo = new ListExtender()
-          validateTwo.setPlaceholder('Type Here!')
-          validateTwo.addListItem()
-          validateTwo.addValidation(value => {
-            const vals = validateTwo.getData()
-            for (let i = 0; i < vals.length; i++) {
-              if (vals[i] === value) {
-                return false
-              }
-            }
-            return true
-          }, 'Duplicates not allowed!')
-          validateTwo.appendTo('#validationTwo')
-        </pre></code>
+        <code>
+          <pre>const validateTwo = new ListExtender() </pre>
+          <pre>validateTwo.setPlaceholder('Type Here!') </pre>
+          <pre>validateTwo.addListItem() </pre>
+          <pre>validateTwo.addValidation(value => { </pre>
+          <pre>  const vals = validateTwo.getData() </pre>
+          <pre>  for (let i = 0; i < vals.length; i++) { </pre>
+          <pre>    if (vals[i] === value) { </pre>
+          <pre>      return false </pre>
+          <pre>    } </pre>
+          <pre>  } </pre>
+          <pre>  return true </pre>
+          <pre>}, 'Duplicates not allowed!') </pre>
+          <pre>validateTwo.appendTo('#validationTwo') </pre>
+        </code>
       </details>
     </div>
     <div class="card" id="addItems">
@@ -111,19 +111,18 @@ simpleList.appendTo('#simpleList')
       </form>
       <details>
         <summary>Source Code</summary>
-        <code><pre>
-          const addItems = new ListExtender()
-          addItems.setPlaceholder('Use form above!')
-          addItems.addListItem()
-          addItems.appendTo('#addItems')
-  
-          const handleSubmit = event => {
-            event.preventDefault()
-            const items = event.target.firstElementChild.value.split(' ').filter(val => val !== '')
-            addItems.addFromArray(items)
-            event.target.firstElementChild.value = ''
-          }
-        </pre></code>
+        <code>
+          <pre>const addItems = new ListExtender()</pre>
+          <pre>addItems.setPlaceholder('Use form above!')</pre>
+          <pre>addItems.addListItem()</pre>
+          <pre>addItems.appendTo('#addItems')</pre> <br>
+          <pre>const handleSubmit = event => {</pre>
+          <pre>  event.preventDefault()</pre>
+          <pre>  const items = event.target.firstElementChild.value.split(' ').filter(val => val !== '')</pre>
+          <pre>  addItems.addFromArray(items)</pre>
+          <pre>  event.target.firstElementChild.value = ''</pre>
+          <pre>}</pre>
+        </code>
       </details>
     </div>
     <div class="card" id="getItems">
@@ -132,19 +131,18 @@ simpleList.appendTo('#simpleList')
       <button onclick="handleGetItems(event)">Click Me!</button>
       <details>
         <summary>Source Code</summary>
-        <code><pre>
-          const getItems = new ListExtender()
-          getItems.setPlaceholder('Type Here!')
-          getItems.addListItem()
-          getItems.addAfter('#getItems code')
-  
-          const handleGetItems = event => {
-            const p = event.target.previousElementSibling
-            p.innerText = ''
-            const data = getItems.getData()
-            p.appendChild(document.createTextNode(`The items given in the list are: ${data.toString()}`))
-          }
-        </pre></code>
+        <code>
+          <pre>const getItems = new ListExtender()</pre>
+          <pre>getItems.setPlaceholder('Type Here!')</pre>
+          <pre>getItems.addListItem()</pre>
+          <pre>getItems.addAfter('#getItems code')</pre> <br>
+          <pre>const handleGetItems = event => {</pre>
+          <pre>  const p = event.target.previousElementSibling</pre>
+          <pre>  p.innerText = ''</pre>
+          <pre>  const data = getItems.getData()</pre>
+          <pre>  p.appendChild(document.createTextNode(`The items given in the list are: ${data.toString()}`))</pre>
+          <pre>}</pre>
+        </code>
       </details>
     </div>
   </div>
