@@ -72,8 +72,8 @@ code, pre, details {
     margin: 5px;
     cursor: default;
     font-family: inherit;
-    background-color: #0B101A;
-    color: #E9ECEF;
+    background-color: #DEE2E6;
+    color: #0B101A;
     display: block;
 }
 
@@ -105,6 +105,10 @@ summary:hover {
 
 #examples ul, #examples ol {
     width: 40%;
+}
+
+#examples .card * {
+    margin-bottom: 25px;
 }
 
 #documentation {
