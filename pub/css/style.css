@@ -3,40 +3,60 @@ body {
     flex-direction: column;
     font-family: 'Andale', monospace;
     margin: 0px;
-    color: rgb(26, 53, 53);
+    color: #212529;
+    background-color: #F8F9FA;
 }
 
-#header {
-    display: grid;
-    place-items: center;
-    background: darkslategray;
-    color: ivory;
-    margin: 0px;
-    min-height: 40vh;
-    height: auto;
-    box-shadow: 2px 0px 20px 2px darkcyan;
+#hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 92vh;
+    width: 100%;
+    color: #E9ECEF;
+    background-color: #2A3E65;
 }
 
-#header li {
-    list-style-type: none;
+#hero h1 {
+    font-size: 3rem;
+    text-decoration: underline;
+    text-shadow: #212529 0px 3px;
 }
 
-#example1 {
-    display: grid;
-    place-items: center;
+#hero h4 {
+    text-shadow: #212529 0px 3px;
+    font-size: 1.5rem;
 }
 
-#example2 {
-    display: grid;
-    place-items: center;
+#hero li, #hero input {
+    font-size: 1.2rem;
 }
 
-#example2 div {
-    width: 60vw;
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: max(50px, 8vh);
+    background-color: #243556;
+    padding: 0px 10px;
 }
 
-#employeeSide input:valid {
-    background-color: lightgreen;
+nav h3 {
+    color: #E9ECEF;
+    padding: 10px;
+}
+
+nav h3:hover {
+    background-color: #18233A;
+    opacity: 0.6;
+}
+
+nav button {
+    margin-left: 6px;
+    border: none;
+    padding: 7px;
+    font-family: inherit;
 }
 
 ul {
@@ -52,5 +72,11 @@ input:focus {
 }
 
 table, th, td {
-    border: 1px solid black;
+    border: 1px solid #495057;
+}
+
+
+a {
+    text-decoration: none;
+    color: inherit;
 }
