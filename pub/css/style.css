@@ -50,3 +50,7 @@ input::placeholder {
 input:focus {
     outline: none;
 }
+
+table, th, td {
+    border: 1px solid black;
+}
