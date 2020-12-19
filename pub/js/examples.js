@@ -28,6 +28,7 @@ validateOne.addValidation(value => {
 const validateTwo = new ListExtender()
 validateTwo.addAfter('#validationTwo p')
 validateTwo.setPlaceholder('Type Here!')
+validateTwo.setInputType('date')
 validateTwo.addValidation(value => {
   const vals = validateTwo.getData()
   for (let i = 0; i < vals.length; i++) {

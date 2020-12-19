@@ -23,9 +23,8 @@
         <summary>Source Code</summary>
         <code>
           <pre>const simpleList = new ListExtender()</pre>
+          <pre>simpleList.addAfter('#simpleList p')</pre>
           <pre>simpleList.setPlaceholder('Type here!')</pre>
-          <pre>simpleList.addListItem()</pre>
-          <pre>simpleList.appendTo('#simpleList')</pre>
         </code>
       </details>
     </div>
@@ -41,24 +40,22 @@
         <summary>Source Code</summary>
         <code>
           <pre>const themeList = new ListExtender()</pre>
-          <pre>themeList.setPlaceholder('Type here!')</pre>
-          <pre>themeList.addListItem()</pre>
-          <pre>themeList.appendTo('#themeList')</pre><br>
-  
+          <pre>themeList.addBefore('#themeList details')</pre>
+          <pre>themeList.setPlaceholder('Type here!')</pre><br>
+          <pre>// event listener on button</pre>
           <pre>const setTheme = event => {themeList.setTheme(themeList[event.target.getAttribute('theme')])}</pre>
         </code>
       </details>
     </div>
     <div class="card" id="deleteButton">
       <h3>Lists have an optional delete button that shows on hover</h3>
-      <p>Without button present, delete items by clearing the text of an input</p>
+      <p>When not using the delete button, remove an item by double clicking it and clearing the text.</p>
       <details>
         <summary>Source Code</summary>
         <code>
           <pre>const deleteList = new ListExtender({ showDeleteButton: true })</pre>
+          <pre>deleteList.addAfter('#deleteButton p')</pre>
           <pre>deleteList.setPlaceholder('Type Here!')</pre>
-          <pre>deleteList.addListItem()</pre>
-          <pre>deleteList.appendTo('#deleteButton')</pre>
         </code>
       </details>
     </div>
@@ -69,26 +66,26 @@
         <summary>Source Code</summary>
         <code>
           <pre>const validateOne = new ListExtender({ showDeleteButton: true })</pre>
+          <pre>validateOne.addAfter('#validationOne p')</pre>
           <pre>validateOne.setPlaceholder('yyyy-mm-dd || mm/dd/yyyy || ddmmyyyy')</pre>
-          <pre>validateOne.addListItem()</pre>
           <pre>validateOne.addValidation(value => {</pre>
           <pre>  return (value.match(/\d{4}-\d{2}-\d{2}/) && value.match(/\d{4}-\d{2}-\d{2}/)[0] === value) ||</pre>
           <pre>  (value.match(/\d{2}\/\d{2}\/\d{4}/) && value.match(/\d{2}\/\d{2}\/\d{4}/)[0] === value) || </pre>
           <pre>  (value.match(/\d{8}/) && value.match(/\d{8}/)[0] === value)</pre>
           <pre>}, 'Please follow specified format!!')</pre>
-          <pre>validateOne.appendTo('#validationOne')</pre>
         </code>
       </details>
     </div>
     <div class="card" id="validationTwo">
       <h3>ListExtender allows for more complex validation as well!</h3>
-      <p>The following list does not accept duplicate entries</p>
+      <p>The following list does not accept duplicate dates entries.</p>
       <details>
         <summary>Source Code</summary>
         <code>
           <pre>const validateTwo = new ListExtender() </pre>
+          <pre>validateTwo.addAfter('#validationTwo p') </pre>
           <pre>validateTwo.setPlaceholder('Type Here!') </pre>
-          <pre>validateTwo.addListItem() </pre>
+          <pre>validateTwo.setInputType('date')</pre>
           <pre>validateTwo.addValidation(value => { </pre>
           <pre>  const vals = validateTwo.getData() </pre>
           <pre>  for (let i = 0; i < vals.length; i++) { </pre>
@@ -98,7 +95,6 @@
           <pre>  } </pre>
           <pre>  return true </pre>
           <pre>}, 'Duplicates not allowed!') </pre>
-          <pre>validateTwo.appendTo('#validationTwo') </pre>
         </code>
       </details>
     </div>
@@ -114,8 +110,8 @@
         <code>
           <pre>const addItems = new ListExtender()</pre>
           <pre>addItems.setPlaceholder('Use form above!')</pre>
-          <pre>addItems.addListItem()</pre>
           <pre>addItems.appendTo('#addItems')</pre> <br>
+          <pre>// event listener for button click</pre>
           <pre>const handleSubmit = event => {</pre>
           <pre>  event.preventDefault()</pre>
           <pre>  const items = event.target.firstElementChild.value.split(' ').filter(val => val !== '')</pre>
@@ -133,9 +129,9 @@
         <summary>Source Code</summary>
         <code>
           <pre>const getItems = new ListExtender()</pre>
-          <pre>getItems.setPlaceholder('Type Here!')</pre>
-          <pre>getItems.addListItem()</pre>
           <pre>getItems.addAfter('#getItems code')</pre> <br>
+          <pre>getItems.setPlaceholder('Type Here!')</pre>
+          <pre>// event listener for button click</pre>
           <pre>const handleGetItems = event => {</pre>
           <pre>  const p = event.target.previousElementSibling</pre>
           <pre>  p.innerText = ''</pre>
