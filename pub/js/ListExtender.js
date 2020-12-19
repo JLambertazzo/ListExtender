@@ -218,6 +218,20 @@
     button.setAttribute('style', 'background: firebrick; color: white; font-size: 0.7em; visibility: hidden; float: right; border: none;')
     return button
   }
+
+  function handleDragStart (event) {
+    if (event.target.firstElementChild && event.target.firstElementChild.getAttribute('type') === 'text') {
+      event.preventDefault()
+    } else {
+      event.target.classList.add('dragging')
+      event.target.setAttribute('style', 'opacity: 0.5;')
+    }
+  }
+
+  function handleDragEnd (event) {
+    event.target.classList.remove('dragging')
+    event.target.setAttribute('style', 'opacity: 1;')
+  }
   /* ========================= */
 
   ListExtender.prototype = {
@@ -277,8 +291,8 @@
       li.setAttribute('key', this.listSize)
       if (this.options.allowReorder) {
         li.setAttribute('draggable', true)
-        li.addEventListener('dragstart', this.handleDragStart)
-        li.addEventListener('dragend', this.handleDragEnd)
+        li.addEventListener('dragstart', handleDragStart)
+        li.addEventListener('dragend', handleDragEnd)
       }
       this.element.appendChild(li)
       this.listSize++
@@ -292,10 +306,20 @@
     },
 
     addFromArray: function (data) {
+      let addNewItem = false
+      if (this.element.lastElementChild.firstElementChild && 
+        this.element.lastElementChild.firstElementChild.getAttribute('type') !== 'submit' && 
+        this.element.lastElementChild.firstElementChild.value === '') {
+        this.element.removeChild(this.element.lastElementChild)
+        addNewItem = true
+      }
       for (let i = 0; i < data.length; i++) {
         this.addListItem()
         this.element.lastElementChild.firstChild.value = data[i]
         turnToList(this.element.lastElementChild.firstChild, this)
+      }
+      if (addNewItem) {
+        this.addListItem()
       }
     },
 
@@ -343,20 +367,6 @@
         data.pop()
       }
       return data
-    },
-
-    handleDragStart: function (event) {
-      if (event.target.firstElementChild && event.target.firstElementChild.getAttribute('type') === 'text') {
-        event.preventDefault()
-      } else {
-        event.target.classList.add('dragging')
-        event.target.setAttribute('style', 'opacity: 0.5;')
-      }
-    },
-
-    handleDragEnd: function (event) {
-      event.target.classList.remove('dragging')
-      event.target.setAttribute('style', 'opacity: 1;')
     },
 
     setTheme: function (theme) {
