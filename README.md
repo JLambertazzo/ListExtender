@@ -1,5 +1,5 @@
 # ListExtender.js
-## http://enigmatic-oasis-06323.herokuapp.com/
+## https://enigmatic-oasis-06323.herokuapp.com/
 
 ## Getting Started
 1. Download and import the ListExtender library along with any code that uses it into your html file. Make sure you import the library before any code that uses it.
@@ -22,4 +22,4 @@ myList.setPlaceholder('Placeholder Text')
 myList.setInputType('email')
 ```
 ### For more instructions on using the library, visit:  
-http://enigmatic-oasis-06323.herokuapp.com/documentation 
+https://enigmatic-oasis-06323.herokuapp.com/documentation 

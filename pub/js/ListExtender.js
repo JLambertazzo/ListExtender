@@ -192,7 +192,7 @@
 
   function canRemove (input, listObj) {
     // allow deleting if input is empty and list has 2+ inputs
-    return (input.value === '') && inputCount(listObj) >= 2
+    return (input.value === '') && (inputCount(listObj) >= 2 || listObj.listSize > listObj.maxSize)
   }
 
   function inputCount (listObj) {
@@ -276,7 +276,7 @@
     },
 
     addListItem: function () {
-      if (this.listSize === this.maxSize) {
+      if (this.listSize > this.maxSize) {
         return
       }
       const li = document.createElement('LI')
