@@ -41,7 +41,6 @@
     this.element.addEventListener('dblclick', event => {
       if (!event.target.firstChild || 
         (document.activeElement.tagName !== 'input' || !validate(document.activeElement) || !customChecks(document.activeElement, this))) {
-        console.log('blocked son')
         event.preventDefault()
         return false
       }
