@@ -25,7 +25,10 @@
     <h1>Examples</h1>
     <div class="card" id="simpleList">
       <h3>A basic extending list</h3>
-      <p>Enter text to expand the list, drag and drop to rearrange, double click to modify</p>
+      <p>Enter text to expand the list. 
+        <br> Drag and drop elements to rearrange them. 
+        <br> Double click validated elements to modify them again. 
+        <br> Clear elements and deselect them to delete them</p>
       <details>
         <summary>Source Code</summary>
         <code>
@@ -48,7 +51,8 @@
         <code>
           <pre>const themeList = new ListExtender()</pre>
           <pre>themeList.addBefore('#themeList details')</pre>
-          <pre>themeList.setPlaceholder('Type here!')</pre><br>
+          <pre>themeList.setPlaceholder('Type here!')</pre>
+          <pre>themeList.addFromArray(['Try', 'The', 'Buttons', 'Above'])</pre><br>
           <pre>// event listener on button</pre>
           <pre>const setTheme = event => {themeList.setTheme(themeList[event.target.getAttribute('theme')])}</pre>
         </code>
@@ -63,6 +67,7 @@
           <pre>const deleteList = new ListExtender({ showDeleteButton: true })</pre>
           <pre>deleteList.addAfter('#deleteButton p')</pre>
           <pre>deleteList.setPlaceholder('Type Here!')</pre>
+          <pre>deleteList.addFromArray(['Delete', 'These', 'Elements!!'])</pre>
         </code>
       </details>
     </div>
@@ -91,7 +96,6 @@
         <code>
           <pre>const validateTwo = new ListExtender() </pre>
           <pre>validateTwo.addAfter('#validationTwo p') </pre>
-          <pre>validateTwo.setPlaceholder('Type Here!') </pre>
           <pre>validateTwo.setInputType('date')</pre>
           <pre>validateTwo.addValidation(value => { </pre>
           <pre>  const vals = validateTwo.getData() </pre>

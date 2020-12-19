@@ -7,6 +7,7 @@ simpleList.setPlaceholder('Type here!')
 const themeList = new ListExtender()
 themeList.addBefore('#themeList details')
 themeList.setPlaceholder('Type here!')
+themeList.addFromArray(['Try', 'The', 'Buttons', 'Above'])
 
 const setTheme = event => {
   themeList.setTheme(themeList[event.target.getAttribute('theme')])
@@ -15,6 +16,7 @@ const setTheme = event => {
 const deleteList = new ListExtender({ showDeleteButton: true })
 deleteList.addAfter('#deleteButton p')
 deleteList.setPlaceholder('Type Here!')
+deleteList.addFromArray(['Delete', 'These', 'Elements!!'])
 
 const validateOne = new ListExtender({ showDeleteButton: true })
 validateOne.addAfter('#validationOne p')
@@ -27,7 +29,6 @@ validateOne.addValidation(value => {
 
 const validateTwo = new ListExtender()
 validateTwo.addAfter('#validationTwo p')
-validateTwo.setPlaceholder('Type Here!')
 validateTwo.setInputType('date')
 validateTwo.addValidation(value => {
   const vals = validateTwo.getData()

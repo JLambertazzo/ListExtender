@@ -39,8 +39,7 @@
     })
 
     this.element.addEventListener('dblclick', event => {
-      if (!event.target.firstChild || 
-        (document.activeElement.tagName !== 'input' || !validate(document.activeElement) || !customChecks(document.activeElement, this))) {
+      if (document.activeElement.tagName === 'INPUT' && !(validate(document.activeElement) && customChecks(document.activeElement, this))) {
         event.preventDefault()
         return false
       }

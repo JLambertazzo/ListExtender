@@ -1,5 +1,5 @@
-# js-library-lamber97
-LINK GOES HERE
+# ListExtender.js
+## https://mysterious-wave-81486.herokuapp.com/
 
 ## Getting Started
 1. Download and import the ListExtender library along with any code that uses it into your html file. Make sure you import the library before any code that uses it.
@@ -21,4 +21,5 @@ From here you can customize the list however you see fit. A good place to start 
 myList.setPlaceholder('Placeholder Text')
 myList.setInputType('email')
 ```
-### For more instructions on using the library, visit LINKGOESHERE/documentation 
+### For more instructions on using the library, visit:  
+https://mysterious-wave-81486.herokuapp.com/documentation 
