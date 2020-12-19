@@ -54,7 +54,9 @@
       event.target.firstChild.tagName !== 'INPUT') {
         turnToInput(event.target, this)
         event.target.firstElementChild.select()
-        event.target.firstElementChild.selectionStart = event.target.firstElementChild.selectionEnd
+        if (['text', 'password', 'url'].includes(this.attr.type)) {
+          event.target.firstElementChild.selectionStart = event.target.firstElementChild.selectionEnd
+        }
       }
     })
 
@@ -220,7 +222,7 @@
 
   ListExtender.prototype = {
     setInputType: function (type) {
-      if (type !== 'submit') {
+      if (['email', 'date', 'month', 'number', 'time', 'week', 'text', 'password', 'url'].includes(type)) {
         this.attr.type = type
         const inputs = [...this.element.querySelectorAll('input')].filter(element => element.getAttribute('type') !== 'submit')
         inputs.forEach(input => {
