@@ -46,8 +46,10 @@
     })
 
     this.element.addEventListener('dblclick', event => {
-      if (event.target.firstChild) {
+      if (!event.target.firstChild || 
+        (document.activeElement.tagName === 'input' && document.activeElement !== event.target)) {
         event.preventDefault()
+        return false
       }
       if (event.target.tagName === 'LI' &&
       event.target.firstChild &&
