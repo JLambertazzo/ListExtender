@@ -11,12 +11,14 @@ LINK GOES HERE
 ```javascript
 const myList = new ListExtender()
 ```
-3. Set the input placeholder text and add an input to the list element
-```javascript
-myList.setPlaceholder('Placeholder Text')
-```
-4. Append your list to some parent container in the DOM
+3. Append your list to some parent container in the DOM
 ```javascript
 myList.appendTo('#containerId')
+```
+And that's it! You now have a working extending list in your website!  
+From here you can customize the list however you see fit. A good place to start would be setting the placeholder and input type.
+```javascript
+myList.setPlaceholder('Placeholder Text')
+myList.setInputType('email')
 ```
 ### For more instructions on using the library, visit LINKGOESHERE/documentation 
