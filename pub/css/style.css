@@ -1,7 +1,8 @@
 body {
     display: flex;
     flex-direction: column;
-    font-family: 'Andale', monospace;
+    font-family: 'Nunito', 'Andale', monospace;
+    /* font-family: 'Andale', monospace; */
     margin: 0px;
     color: #212529;
     background-color: #F8F9FA;
@@ -61,6 +62,7 @@ button {
     font-family: inherit;
     padding: 7px;
     background-color: #DEE2E6;
+    cursor: pointer;
 }
 
 button:focus {
@@ -71,7 +73,7 @@ button:focus {
 code, pre, details {
     margin: 5px;
     cursor: default;
-    font-family: inherit;
+    font-family: 'Andale', monospace;
     background-color: #DEE2E6;
     color: #0B101A;
     display: block;
@@ -127,7 +129,7 @@ summary:hover {
     border-radius: 15px;
 }
 
-ul {
+ul, ol {
     padding: 0px;
 }
 
@@ -162,7 +164,6 @@ th {
 td {
     padding: 15px;
 }
-
 
 a {
     text-decoration: none;

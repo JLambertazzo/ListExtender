@@ -2,6 +2,13 @@
 <head>
   <title>ListExtender.js</title>
   <link rel="stylesheet" href="css/style.css">
+  <!-- /*
+      Title: Nunito
+      Author: Vernon Adams, Cyreal
+      Date: n.d.
+      Availability: https://fonts.google.com/specimen/Nunito#standard-styles
+  */ -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
   <link rel="icon" href="img/icon.png">
   <script defer type="text/javascript" src="js/ListExtender.js"></script>
 </head>
@@ -17,8 +24,8 @@
     <h1>Documentation</h1>
     <div class="card" id='gettingStarted'>
       <h1>Getting Started</h1>
-      <p>The first step is to import ListExtender.js and any javascript using ListExtender into your html file. Make sure you
-        import it before any javascript files that depend on it.</p>
+      <p>The first step is to download ListExtender.js and import it along with any javascript using ListExtender into your html file. 
+        <br> Make sure you import ListExtender.js before any code that uses it.</p>
       <code>&ltscript defer type='text/javascript' src='js/ListExtender.js'&gt&lt/script&gt
         <br>&ltscript defer type='text/javascript' src='js/myScript.js'&gt&lt/script&gt</code>
       <p>The next step is to create your ListExtender object.</p>
@@ -68,8 +75,16 @@
             <th>Description</th>
           </tr>
           <tr>
+            <td>element</td>
+            <td>The ul/ol element displayed in the DOM</td>
+          </tr>
+          <tr>
             <td>maxSize</td>
             <td>The maximum number of entries in the list</td>
+          </tr>
+          <tr>
+            <td>listSize</td>
+            <td>The number of elements in the list</td>
           </tr>
           <tr>
             <td>simpleLight</td>

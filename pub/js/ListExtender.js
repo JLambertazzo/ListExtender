@@ -8,21 +8,14 @@
       isUnordered: true,
       allowReorder: true,
       showDeleteButton: false,
-      id: '',
-      classList: [],
       ...options
     }
-    // element set up
-    this.element = this.options.isUnordered ? document.createElement('UL') : document.createElement('OL')
-    if (this.options.id) {
-      this.element.id = this.options.id
-    }
-    if (this.options.classList.length > 0) {
-      this.element.classList.add([...this.options.classList])
-    }
 
+    this.element = (this.options.isUnordered ? document.createElement('UL') : document.createElement('OL'))
     this.maxSize = 100
     this.listSize = 0
+    
+    // following are available, but no reason to be used so are not listed in documentation
     this.inputChecks = []
     this.attr = {
       type: 'text',
@@ -424,7 +417,6 @@
     },
 
     emoji: {
-      background: 'white',
       color: 'teal',
       'list-style': '\'\\1F449\''
     }
