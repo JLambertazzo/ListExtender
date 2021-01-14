@@ -120,6 +120,11 @@ summary:hover {
     width: fit-content;
 }
 
+#gh {
+    float: left;
+    margin-right: 3px;
+}
+
 .card {
     width: 80%;
     padding: 10px;
