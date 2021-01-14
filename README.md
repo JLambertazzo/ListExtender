@@ -2,7 +2,7 @@
 ## https://jlambertazzo.github.io/ListExtender/
 
 ## Getting Started
-1. Download and import the ListExtender library along with any code that uses it into your html file. Make sure you import the library before any code that uses it.
+1. Import the library into your HTML file using the following script tag. Make sure you import it before any code that will use/depend on it.
 ```html
 <script defer type="text/javascript" src="https://jlambertazzo.github.io/ListExtender/js/ListExtender.js"></script>
 ```
