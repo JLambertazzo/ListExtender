@@ -4,7 +4,7 @@
 ## Getting Started
 1. Import the library into your HTML file using the following script tag. Make sure you import it before any code that will use/depend on it.
 ```html
-<script defer type="text/javascript" src="https://jlambertazzo.github.io/ListExtender/lib/compressed/ListExtender.js"></script>
+<script defer type="text/javascript" src="https://jlambertazzo.github.io/ListExtender/lib/ListExtender.min.js"></script>
 ```
 2. Create a ListExtender object
 ```javascript
