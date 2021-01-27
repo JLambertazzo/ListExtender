@@ -1,11 +1,11 @@
 # ListExtender.js
-## https://jlambertazzo.github.io/ListExtender/
+## https://julienbl.me/ListExtender/
 
 ## Install
 
 ### Static
 ```html
-<script defer type="text/javascript" src="https://jlambertazzo.github.io/ListExtender/lib/ListExtender.min.js"></script>
+<script defer type="text/javascript" src="https://julienbl.me/ListExtender/lib/ListExtender.min.js"></script>
 ```
 
 ### Node 
@@ -30,4 +30,4 @@ myList.setInputType('email')
 ```
 
 ### For more instructions on using the library, visit:  
-https://jlambertazzo.github.io/ListExtender/documentation.html
+https://julienbl.me/ListExtender/documentation.html
