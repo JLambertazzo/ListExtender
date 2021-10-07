@@ -31,3 +31,11 @@ myList.setInputType('email')
 
 ### For more instructions on using the library, visit:  
 https://julienbl.me/ListExtender/documentation.html
+
+## Contributing
+To contribute to this project please follow the following steps
+* Fork this project
+* Make the necessary changes on the forked project in lib/ListExtender.js
+* Minify the javascript style with `npm run build`
+* Commit and push your changes and create a pull request to merge with this repository
+* For more help on this process please click [here](https://hacktoberfest.digitalocean.com/resources)
