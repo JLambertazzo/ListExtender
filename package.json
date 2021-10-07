@@ -1,0 +1,22 @@
+{
+  "name": "list-extender",
+  "version": "1.0.0",
+  "description": "```html\r <script defer type=\"text/javascript\" src=\"https://julienbl.me/ListExtender/lib/ListExtender.min.js\"></script>\r ```",
+  "main": "list-extender/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "build": "npx minify lib/ListExtender.js > lib/ListExtender.min.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JLambertazzo/ListExtender.git"
+  },
+  "author": "Julien Bertazzo Lambert",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JLambertazzo/ListExtender/issues"
+  },
+  "homepage": "https://github.com/JLambertazzo/ListExtender#readme"
+}
