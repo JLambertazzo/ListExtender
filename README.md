@@ -3,7 +3,7 @@
 
 ## Install
 
-### Static
+### Static (recommended)
 ```html
 <script defer type="text/javascript" src="https://julienbl.me/ListExtender/lib/ListExtender.min.js"></script>
 ```
