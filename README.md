@@ -5,7 +5,7 @@
 
 ### Static (recommended)
 ```html
-<script defer type="text/javascript" src="https://julienbl.me/ListExtender/lib/ListExtender.min.js"></script>
+<script defer type="text/javascript" src="https://www.julienbl.me/ListExtender/lib/ListExtender.min.js"></script>
 ```
 
 ### Node 
