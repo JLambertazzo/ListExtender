@@ -1,7 +1,13 @@
 name: Minify Workflow
-on:
+on: 
+  pull_request:
+    branches: [ master ]
+    paths: 
+      - 'lib/ListExtender.js'
   push:
     branches: [ master ]
+    paths:
+      - 'lib/ListExtender.js'
 
 jobs:
   build:
