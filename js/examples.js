@@ -9,8 +9,17 @@ themeList.addBefore('#themeList details')
 themeList.setPlaceholder('Type here!')
 themeList.addFromArray(['Try', 'The', 'Buttons', 'Above'])
 
+const commList = new ListExtender()
+commList.addBefore('#commList details')
+commList.setPlaceholder('Type here!')
+commList.addFromArray(['Try', 'The', 'Buttons', 'Above'])
+
 const setTheme = event => {
   themeList.setTheme(themeList[event.target.getAttribute('theme')])
+}
+
+const setCommTheme = event => {
+  commList.setTheme(commList[event.target.getAttribute('theme')])
 }
 
 const deleteList = new ListExtender({ showDeleteButton: true })

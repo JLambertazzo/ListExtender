@@ -59,6 +59,25 @@
         </code>
       </details>
     </div>
+    <div class="card" id="commList">
+      <h3>Try community-made built-in styles for extending lists!</h3>
+      <div id="commButtons" onclick="setCommTheme(event)">
+        <!-- Made a theme? Add the button for it here -->
+        <button theme="fire">Fire Theme</button>
+      </div>
+      <details>
+        <summary>Source Code</summary>
+        <code>
+          <pre>const commList = new ListExtender()</pre>
+          <pre>commList.addBefore('#commList details')</pre>
+          <pre>commList.setPlaceholder('Type here!')</pre>
+          <pre>commList.addFromArray(['Try', 'The', 'Buttons', 'Above'])</pre><br>
+          <pre>// event listener on button</pre>
+          <pre>const setCommTheme = event => {commList.setTheme(commList[event.target.getAttribute('theme')])}</pre>
+        </code>
+      </details>
+      <p>Want to add your own theme to this list? Check out <a href="https://github.com/JLambertazzo/ListExtender/blob/master/CONTRIBUTING.md">contributing.md</a></p>
+    </div>
     <div class="card" id="deleteButton">
       <h3>Lists have an optional delete button that shows on hover</h3>
       <p>When not using the delete button, remove an item by double clicking it and clearing the text.</p>
