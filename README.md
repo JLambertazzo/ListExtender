@@ -1,5 +1,5 @@
 # ListExtender.js
-## https://julienbl.me/ListExtender/
+## https://www.julienbl.me/ListExtender/
 
 ## Install
 
