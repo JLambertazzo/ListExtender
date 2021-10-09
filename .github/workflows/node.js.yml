@@ -22,7 +22,7 @@ jobs:
       - name: Minify-JS Action
         uses: jossydevers/minify-js@v1.0.0
         with:
-          directory: 'lib/'
+          directory: 'lib/ListExtender.js'
           output: 'lib/'
           
       # Auto-commit to repository
