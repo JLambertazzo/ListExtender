@@ -1,3 +1,7 @@
+*{
+    box-sizing: border-box;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -17,10 +21,12 @@ body {
     width: 100%;
     color: #E9ECEF;
     background-color: #2A3E65;
+    padding: 0 20px;
 }
 
 #hero h1 {
     font-size: 3rem;
+    text-align: center;
     text-decoration: underline;
     text-shadow: #212529 0px 3px;
 }
@@ -173,4 +179,29 @@ td {
 a {
     text-decoration: none;
     color: inherit;
+}
+
+/* ADDING RESPONSIVENESS */
+.sm-buttons{
+    visibility: hidden;
+}
+
+@media screen and (max-width: 640px) {
+    button{
+        display: none;
+    }
+    .sm-buttons{
+        visibility: visible; 
+        width:100%;
+        text-align: center;
+    }
+    .sm-buttons a span{
+        font-size: 0.9rem;
+        padding: 3px;
+        margin: 5px;
+        border: 2px solid #E9ECEF;
+    }
+    .sm-buttons a span:hover{
+        box-shadow: 0 0px 7px 0px rgb(233, 236, 239, 0.5);
+    }
 }
