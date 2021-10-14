@@ -1,55 +1,59 @@
 <!DOCTYPE html>
+
 <head>
-  <title>ListExtender.js</title>
-  <link rel="stylesheet" href="css/style.css">
-  <!-- /*
+    <title>ListExtender.js</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- /*
     Title: Nunito
     Author: Vernon Adams, Cyreal
     Date: n.d.
     Availability: https://fonts.google.com/specimen/Nunito#standard-styles
   */ -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
-  <link rel="icon" href="img/icon.png">
-  <script defer type="text/javascript" src="https://www.julienbl.me/ListExtender/lib/ListExtender.min.js"></script>
-  <script defer type="text/javascript" src="js/examples.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+    <link rel="icon" href="img/icon.png">
+    <script defer type="text/javascript" src="https://www.julienbl.me/ListExtender/lib/ListExtender.min.js"></script>
+    <script defer type="text/javascript" src="js/examples.js"></script>
 </head>
+
 <body>
-  <nav>
-    <a href="index.html"><h3>ListExtender.js</h3></a>
-    <div id="nav-buttons">
-      <a href="https://github.com/JLambertazzo/ListExtender#readme"><img id='gh' src="img/GitHub-Mark-Light-32px.png" /></a>
-      <a href="examples.html"><button>Examples</button></a>
-      <a href="documentation.html"><button>Documentation</button></a>
-    </div>
-  </nav>
-  <div id="examples">
-    <h1>Examples</h1>
-    <div class="card" id="simpleList">
-      <h3>A basic extending list</h3>
-      <p>Enter text to expand the list. 
-        <br> Drag and drop elements to rearrange them. 
-        <br> Double click validated elements to modify them again. 
-        <br> Clear elements and deselect them to delete them</p>
-      <details>
-        <summary>Source Code</summary>
-        <code>
+    <nav>
+        <a href="index.html">
+            <h3>ListExtender.js</h3>
+        </a>
+        <div id="nav-buttons">
+            <a href="https://github.com/JLambertazzo/ListExtender#readme"><img id='gh' src="img/GitHub-Mark-Light-32px.png" /></a>
+            <a href="examples.html"><button>Examples</button></a>
+            <a href="documentation.html"><button>Documentation</button></a>
+        </div>
+    </nav>
+    <div id="examples">
+        <h1>Examples</h1>
+        <div class="card" id="simpleList">
+            <h3>A basic extending list</h3>
+            <p>Enter text to expand the list.
+                <br> Drag and drop elements to rearrange them.
+                <br> Double click validated elements to modify them again.
+                <br> Clear elements and deselect them to delete them</p>
+            <details>
+                <summary>Source Code</summary>
+                <code>
           <pre>const simpleList = new ListExtender()</pre>
           <pre>simpleList.addAfter('#simpleList p')</pre>
           <pre>simpleList.setPlaceholder('Type here!')</pre>
         </code>
-      </details>
-    </div>
-    <div class="card" id="themeList">
-      <h3>Try a few of the built-in styles for extending lists!</h3>
-      <div id="themeButtons" onclick="setTheme(event)">
-        <button theme="simpleLight">Simple Light Theme</button>
-        <button theme="simpleDark">Simple Dark Theme</button>
-        <button theme="underwater">Underwater Theme</button>
-        <button theme="hacker">Hacker Theme</button>
-      </div>
-      <details>
-        <summary>Source Code</summary>
-        <code>
+            </details>
+        </div>
+        <div class="card" id="themeList">
+            <h3>Try a few of the built-in styles for extending lists!</h3>
+            <div id="themeButtons" onclick="setTheme(event)">
+                <button theme="simpleLight">Simple Light Theme</button>
+                <button theme="simpleDark">Simple Dark Theme</button>
+                <button theme="underwater">Underwater Theme</button>
+                <button theme="hacker">Hacker Theme</button>
+            </div>
+            <details>
+                <summary>Source Code</summary>
+                <code>
           <pre>const themeList = new ListExtender()</pre>
           <pre>themeList.addBefore('#themeList details')</pre>
           <pre>themeList.setPlaceholder('Type here!')</pre>
@@ -57,22 +61,23 @@
           <pre>// event listener on button</pre>
           <pre>const setTheme = event => {themeList.setTheme(themeList[event.target.getAttribute('theme')])}</pre>
         </code>
-      </details>
-    </div>
-    <div class="card" id="commList">
-      <h3>Try community-made built-in styles for extending lists!</h3>
-      <div id="commButtons" onclick="setCommTheme(event)">
-        <!-- Made a theme? Add the button for it here -->
-        <button theme="fire">Fire Theme</button>
-        <button theme="typewriter">Typewriter Theme</button>
-        <button theme="checklist">Checklist Theme</button>
-        <button theme="hacktoberfest">hacktoberfest Theme</button>
-        <button theme="softSkyblue">Soft - Skyblue Theme</button>
-        <button theme="halloween">Halloween Theme</button>
-      </div>
-      <details>
-        <summary>Source Code</summary>
-        <code>
+            </details>
+        </div>
+        <div class="card" id="commList">
+            <h3>Try community-made built-in styles for extending lists!</h3>
+            <div id="commButtons" onclick="setCommTheme(event)">
+                <!-- Made a theme? Add the button for it here -->
+                <button theme="fire">Fire Theme</button>
+                <button theme="typewriter">Typewriter Theme</button>
+                <button theme="checklist">Checklist Theme</button>
+                <button theme="hacktoberfest">hacktoberfest Theme</button>
+                <button theme="softSkyblue">Soft - Skyblue Theme</button>
+                <button theme="halloween">Halloween Theme</button>
+                <button theme="batman">Batman Theme</button>
+            </div>
+            <details>
+                <summary>Source Code</summary>
+                <code>
           <pre>const commList = new ListExtender()</pre>
           <pre>commList.addBefore('#commList details')</pre>
           <pre>commList.setPlaceholder('Type here!')</pre>
@@ -80,28 +85,28 @@
           <pre>// event listener on button</pre>
           <pre>const setCommTheme = event => {commList.setTheme(commList[event.target.getAttribute('theme')])}</pre>
         </code>
-      </details>
-      <p>Want to add your own theme to this list? Check out <a href="https://github.com/JLambertazzo/ListExtender/blob/master/CONTRIBUTING.md">contributing.md</a></p>
-    </div>
-    <div class="card" id="deleteButton">
-      <h3>Lists have an optional delete button that shows on hover</h3>
-      <p>When not using the delete button, remove an item by double clicking it and clearing the text.</p>
-      <details>
-        <summary>Source Code</summary>
-        <code>
+            </details>
+            <p>Want to add your own theme to this list? Check out <a href="https://github.com/JLambertazzo/ListExtender/blob/master/CONTRIBUTING.md">contributing.md</a></p>
+        </div>
+        <div class="card" id="deleteButton">
+            <h3>Lists have an optional delete button that shows on hover</h3>
+            <p>When not using the delete button, remove an item by double clicking it and clearing the text.</p>
+            <details>
+                <summary>Source Code</summary>
+                <code>
           <pre>const deleteList = new ListExtender({ showDeleteButton: true })</pre>
           <pre>deleteList.addAfter('#deleteButton p')</pre>
           <pre>deleteList.setPlaceholder('Type Here!')</pre>
           <pre>deleteList.addFromArray(['Delete', 'These', 'Elements!!'])</pre>
         </code>
-      </details>
-    </div>
-    <div class="card" id="validationOne">
-      <h3>ListExtender makes it easy to validate inputs</h3>
-      <p>The following list accepts dates in the following formats: 2020-12-19, 12/19/2020, 19122020</p>
-      <details>
-        <summary>Source Code</summary>
-        <code>
+            </details>
+        </div>
+        <div class="card" id="validationOne">
+            <h3>ListExtender makes it easy to validate inputs</h3>
+            <p>The following list accepts dates in the following formats: 2020-12-19, 12/19/2020, 19122020</p>
+            <details>
+                <summary>Source Code</summary>
+                <code>
           <pre>const validateOne = new ListExtender({ showDeleteButton: true })</pre>
           <pre>validateOne.addAfter('#validationOne p')</pre>
           <pre>validateOne.setPlaceholder('yyyy-mm-dd || mm/dd/yyyy || ddmmyyyy')</pre>
@@ -111,14 +116,14 @@
           <pre>  (value.match(/\d{8}/) && value.match(/\d{8}/)[0] === value)</pre>
           <pre>}, 'Please follow specified format!!')</pre>
         </code>
-      </details>
-    </div>
-    <div class="card" id="validationTwo">
-      <h3>ListExtender allows for more complex validation as well!</h3>
-      <p>The following list does not accept duplicate dates entries.</p>
-      <details>
-        <summary>Source Code</summary>
-        <code>
+            </details>
+        </div>
+        <div class="card" id="validationTwo">
+            <h3>ListExtender allows for more complex validation as well!</h3>
+            <p>The following list does not accept duplicate dates entries.</p>
+            <details>
+                <summary>Source Code</summary>
+                <code>
           <pre>const validateTwo = new ListExtender() </pre>
           <pre>validateTwo.addAfter('#validationTwo p') </pre>
           <pre>validateTwo.setInputType('date')</pre>
@@ -132,18 +137,18 @@
           <pre>  return true </pre>
           <pre>}, 'Duplicates not allowed!') </pre>
         </code>
-      </details>
-    </div>
-    <div class="card" id="addItems">
-      <h3>It's easy to add items to the list!</h3>
-      <p>Type text in the input box below, each word will be added to the list</p>
-      <form onsubmit="handleSubmit(event)">
-        <input type="text" required />
-        <input type="submit" value="Add to List" />
-      </form>
-      <details>
-        <summary>Source Code</summary>
-        <code>
+            </details>
+        </div>
+        <div class="card" id="addItems">
+            <h3>It's easy to add items to the list!</h3>
+            <p>Type text in the input box below, each word will be added to the list</p>
+            <form onsubmit="handleSubmit(event)">
+                <input type="text" required />
+                <input type="submit" value="Add to List" />
+            </form>
+            <details>
+                <summary>Source Code</summary>
+                <code>
           <pre>const addItems = new ListExtender()</pre>
           <pre>addItems.setPlaceholder('Use form above!')</pre>
           <pre>addItems.appendTo('#addItems')</pre> <br>
@@ -155,15 +160,15 @@
           <pre>  event.target.firstElementChild.value = ''</pre>
           <pre>}</pre>
         </code>
-      </details>
-    </div>
-    <div class="card" id="getItems">
-      <h3>It's easy to get items from the list!</h3>
-      <p>The items given in the list are: </p>
-      <button onclick="handleGetItems(event)">Click Me!</button>
-      <details>
-        <summary>Source Code</summary>
-        <code>
+            </details>
+        </div>
+        <div class="card" id="getItems">
+            <h3>It's easy to get items from the list!</h3>
+            <p>The items given in the list are: </p>
+            <button onclick="handleGetItems(event)">Click Me!</button>
+            <details>
+                <summary>Source Code</summary>
+                <code>
           <pre>const getItems = new ListExtender()</pre>
           <pre>getItems.addAfter('#getItems code')</pre> <br>
           <pre>getItems.setPlaceholder('Type Here!')</pre>
@@ -175,8 +180,9 @@
           <pre>  p.appendChild(document.createTextNode(`The items given in the list are: ${data.toString()}`))</pre>
           <pre>}</pre>
         </code>
-      </details>
+            </details>
+        </div>
     </div>
-  </div>
 </body>
+
 </html>
