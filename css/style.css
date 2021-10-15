@@ -205,3 +205,33 @@ a {
         box-shadow: 0 0px 7px 0px rgb(233, 236, 239, 0.5);
     }
 }
+
+/* FOR DOCS */
+
+code{
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+.table{
+    overflow-x: auto;
+}
+
+@media screen and (max-width: 550px) {
+    .card{
+        width: 100%;
+        box-shadow: none;
+    }
+}
+
+@media screen and (max-width: 470px) {
+    td{
+        font-size: 0.68rem;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .card{
+        padding: 20px;
+    }
+}
