@@ -70,3 +70,27 @@ const handleGetItems = event => {
   const data = getItems.getData()
   p.appendChild(document.createTextNode(`The items given in the list are: ${data.toString()}`))
 }
+
+const markedLists = new ListExtender({ showDeleteButton: true })
+markedLists.addAfter('#markedLists p')
+const dataMarkedList = ['bug fixing', 'implement new feature']
+markedLists.addFromArray(dataMarkedList)
+markedLists.element.addEventListener('mouseenter', event => {
+  const children = [...markedLists.element.children]
+  children.forEach(child => {
+    if (child.querySelector('input[type="submit"]')) {
+      child.querySelector('input[type="submit"]').value = 'DONE'
+      child.querySelector('input[type="submit"]').style.visibility = 'visible'
+      child.querySelector('input[type="submit"]').style.background = 'green'
+    }
+  })
+})
+markedLists.element.addEventListener('mousedown', event => {
+  if (event.target.tagName === 'INPUT' && event.target.getAttribute('type') === 'submit') { 
+    let ulElement = event.target.parentElement
+    // let index = parseInt(ulElement.attributes[0].value) === 1 ? 0 : ulElement.attributes[0].value
+    // console.log(index)
+    markedLists.element.insertBefore(ulElement, markedLists.element.children[0])
+    ulElement.style['text-decoration'] = 'line-through'
+  }
+})
