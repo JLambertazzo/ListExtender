@@ -70,7 +70,9 @@
         <button theme="softSkyblue">Soft - Skyblue Theme</button>
         <button theme="halloween">Halloween Theme</button>
         <button theme="Love">Love Theme</button>
+        <button theme="Scissors">Scissors Theme</button>
         <button theme="Spiderman">Spiderman Theme</button>
+
       </div>
       <details>
         <summary>Source Code</summary>
@@ -176,6 +178,36 @@
           <pre>  const data = getItems.getData()</pre>
           <pre>  p.appendChild(document.createTextNode(`The items given in the list are: ${data.toString()}`))</pre>
           <pre>}</pre>
+        </code>
+      </details>
+    </div>
+    <div class="card" id="markedLists">
+      <h3>Make a simple completed todo list!</h3>
+      <p>The items that you can set complete.</p>
+      <details>
+        <summary>Source Code</summary>
+        <code>
+          <pre>const markedLists = new ListExtender({ showDeleteButton: true })</pre>
+          <pre>markedLists.addAfter('#markedLists p')</pre>
+          <pre>const dataMarkedList = ['bug fixing', 'implement new feature']</pre>
+          <pre>markedLists.addFromArray(dataMarkedList)</pre>
+          <pre>markedLists.element.addEventListener('mouseenter', event => {</pre>
+          <pre>  const children = [...markedLists.element.children]</pre>
+          <pre>  children.forEach(child => {</pre>
+          <pre>    if (child.querySelector('input[type="submit"]')) {</pre>
+          <pre>      child.querySelector('input[type="submit"]').value = 'DONE'</pre>
+          <pre>      child.querySelector('input[type="submit"]').style.visibility = 'visible'</pre>
+          <pre>      child.querySelector('input[type="submit"]').style.background = 'green'</pre>
+          <pre>    }</pre>
+          <pre>  })</pre>
+          <pre>})</pre>
+          <pre>markedLists.element.addEventListener('mousedown', event => {</pre>
+          <pre>  if (event.target.tagName === 'INPUT' && event.target.getAttribute('type') === 'submit') { </pre>
+          <pre>    let ulElement = event.target.parentElement</pre>
+          <pre>    markedLists.element.insertBefore(ulElement, markedLists.element.children[0])</pre>
+          <pre>    ulElement.style['text-decoration'] = 'line-through'</pre>
+          <pre>  }</pre>
+          <pre>})</pre>
         </code>
       </details>
     </div>
