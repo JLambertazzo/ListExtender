@@ -419,7 +419,15 @@ ListExtender.prototype = {
   emoji: {
     color: 'teal',
     'list-style': '\'\\1F449\''
-  }
+  },
+  
+  dracula: {
+    background: '#282A36',
+    color: '#F8F8F2',
+    'list-style': '🧛'
+  },
+  
+  
 }
 
 module.exports = ListExtender
