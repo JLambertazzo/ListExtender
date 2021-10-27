@@ -166,6 +166,7 @@ function turnToList (input, listObj) {
   if (listObj.options.showDeleteButton) {
     li.appendChild(getDeleteButton())
   }
+  listObj.setDelBtnTheme(this.delBtnThemes.default);
 }
 
 function turnToInput (li, listObj) {
@@ -209,8 +210,6 @@ function inputCount (listObj) {
 function getDeleteButton () {
   const button = document.createElement('INPUT')
   button.setAttribute('type', 'submit')
-  button.setAttribute('value', 'DEL')
-  button.setAttribute('style', 'background: firebrick; color: white; font-size: 0.7em; visibility: hidden; float: right; border: none;')
   return button
 }
 
@@ -371,6 +370,62 @@ ListExtender.prototype = {
       return `${text} ${prop}: ${val};`
     }, '')
     this.element.style.cssText = cssText
+  },
+
+  setDelBtnTheme: function (btnTheme) {
+    const cssText = Object.keys(btnTheme.css).reduce((text, curr) => {
+      const prop = curr
+      const val = btnTheme.css[curr]
+      return `${text} ${prop}: ${val};`
+    }, '')
+
+    const children = [...this.element.children]
+    children.forEach(child => {
+      if (child.querySelector('input[type="submit"]')) {
+        child.querySelector('input[type="submit"]').value = btnTheme.value;
+        child.querySelector('input[type="submit"]').style.cssText = cssText;
+      }
+    })
+  },
+
+  delBtnThemes: {
+    // Few example themes. Add more!
+    // You must supply atleast two fields:
+    // value (string) and css (JSON object)
+    default: {
+      value: 'DEL',
+      css: {
+        background: 'firebrick',
+        color: 'white',
+        fontSize: '0.7em',
+        visibility: 'hidden',
+        float: 'right',
+        border: 'none',
+      }
+    },
+    cream: {
+      value: 'Delete!',
+      css: {
+        background: 'antiquewhite',
+        color: 'darkolivegreen',
+        fontSize: '1em',
+        visibility: 'hidden',
+        float: 'right',
+        border: '1px solid black',
+      }
+    },
+
+    todo: {
+      value: 'Done',
+      css: {
+        background: 'green',
+        color: 'yellow',
+        fontSize: '0.7em',
+        visibility: 'hidden',
+        float: 'right',
+        border: 'none'
+      }
+    }
   },
 
   // THEMES
