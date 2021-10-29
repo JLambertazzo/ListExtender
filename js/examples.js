@@ -14,12 +14,21 @@ commList.addBefore('#commList details')
 commList.setPlaceholder('Type here!')
 commList.addFromArray(['Try', 'The', 'Buttons', 'Above'])
 
+const delThemeList = new ListExtender({ showDeleteButton: true })
+delThemeList.addBefore('#delThemeList details')
+delThemeList.setPlaceholder('Type here!')
+delThemeList.addFromArray(['Try', 'The', 'Buttons', 'Above'])
+
 const setTheme = event => {
   themeList.setTheme(themeList[event.target.getAttribute('theme')])
 }
 
 const setCommTheme = event => {
   commList.setTheme(commList[event.target.getAttribute('theme')])
+}
+
+const setDelTheme = event => {
+  delThemeList.setDelBtnTheme(delThemeList.delBtnThemes[event.target.getAttribute('theme')])
 }
 
 const deleteList = new ListExtender({ showDeleteButton: true })
@@ -88,8 +97,6 @@ markedLists.element.addEventListener('mouseenter', event => {
 markedLists.element.addEventListener('mousedown', event => {
   if (event.target.tagName === 'INPUT' && event.target.getAttribute('type') === 'submit') { 
     let ulElement = event.target.parentElement
-    // let index = parseInt(ulElement.attributes[0].value) === 1 ? 0 : ulElement.attributes[0].value
-    // console.log(index)
     markedLists.element.insertBefore(ulElement, markedLists.element.children[0])
     ulElement.style['text-decoration'] = 'line-through'
   }

@@ -79,8 +79,7 @@
         <button theme="Dog">Dog Theme</button>
         <button theme="Folders">Folders Theme</button>
         <button theme="dracula">Dracula Theme</button>
-	<button theme="Python">Python Theme</button>
-
+	      <button theme="Python">Python Theme</button>
       </div>
       <details>
         <summary>Source Code</summary>
@@ -91,6 +90,28 @@
           <pre>commList.addFromArray(['Try', 'The', 'Buttons', 'Above'])</pre><br>
           <pre>// event listener on button</pre>
           <pre>const setCommTheme = event => {commList.setTheme(commList[event.target.getAttribute('theme')])}</pre>
+        </code>
+      </details>
+      <p>Want to add your own theme to this list? Check out <a href="https://github.com/JLambertazzo/ListExtender/blob/master/CONTRIBUTING.md">contributing.md</a></p>
+    </div>
+    <div class="card" id="delThemeList">
+      <h3>We also have built-in styles for extending lists! Special thanks to 
+        <a href="https://github.com/basil08" style="text-decoration: underline;">@basil08</a> for the contribution 🚀</h3>
+      <div id="delThemeButtons" onclick="setDelTheme(event)">
+        <!-- Made a theme for delete buttons? Add it below! -->
+        <button theme="todo">To-Do Theme</button>
+        <button theme="cream">Cream Theme</button>
+        <button theme="default">Default Theme</button>
+      </div>
+      <details>
+        <summary>Source Code</summary>
+        <code>
+          <pre>const themeList = new ListExtender({ showDeleteButton: true })</pre>
+          <pre>themeList.addBefore('#delThemeList details')</pre>
+          <pre>themeList.setPlaceholder('Type here!')</pre>
+          <pre>themeList.addFromArray(['Try', 'The', 'Buttons', 'Above'])</pre><br>
+          <pre>// event listener on button</pre>
+          <pre>const setDelTheme = event => {delThemeList.setDelBtnTheme(delThemeList.delBtnThemes[event.target.getAttribute('theme')])}</pre>
         </code>
       </details>
       <p>Want to add your own theme to this list? Check out <a href="https://github.com/JLambertazzo/ListExtender/blob/master/CONTRIBUTING.md">contributing.md</a></p>
