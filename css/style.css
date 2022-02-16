@@ -1,161 +1,166 @@
-*{
-    box-sizing: border-box;
+* {
+  box-sizing: border-box;
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    font-family: 'Nunito', 'Andale', monospace;
-    /* font-family: 'Andale', monospace; */
-    margin: 0px;
-    color: #212529;
-    background-color: #F8F9FA;
+  display: flex;
+  flex-direction: column;
+  font-family: "Nunito", "Andale", monospace;
+  /* font-family: 'Andale', monospace; */
+  margin: 0px;
+  color: #212529;
+  background-color: #f8f9fa;
 }
 
 #hero {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 92vh;
-    width: 100%;
-    color: #E9ECEF;
-    background-color: #2A3E65;
-    padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 92vh;
+  width: 100%;
+  color: #e9ecef;
+  background-color: #2a3e65;
+  padding: 0 20px;
 }
 
 #hero h1 {
-    font-size: 3rem;
-    text-align: center;
-    text-decoration: underline;
-    text-shadow: #212529 0px 3px;
+  font-size: 3rem;
+  text-align: center;
+  text-decoration: underline;
+  text-shadow: #212529 0px 3px;
 }
 
 #hero h4 {
-    text-shadow: #212529 0px 3px;
-    font-size: 1.5rem;
+  text-shadow: #212529 0px 3px;
+  font-size: 1.5rem;
 }
 
-#hero li, #hero input {
-    font-size: 1.2rem;
+#hero li,
+#hero input {
+  font-size: 1.2rem;
 }
 
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: max(50px, 8vh);
-    background-color: #243556;
-    padding: 0px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: max(50px, 8vh);
+  background-color: #243556;
+  padding: 0px 10px;
 }
 
 nav h3 {
-    color: #E9ECEF;
-    padding: 10px;
+  color: #e9ecef;
+  padding: 10px;
 }
 
 nav h3:hover {
-    background-color: #18233A;
-    opacity: 0.6;
+  background-color: #18233a;
+  opacity: 0.6;
 }
 
 nav button {
-    margin-left: 6px;
+  margin-left: 6px;
 }
 
 button {
-    border: none;
-    font-family: inherit;
-    padding: 7px;
-    background-color: #DEE2E6;
-    cursor: pointer;
+  border: none;
+  font-family: inherit;
+  padding: 7px;
+  background-color: #dee2e6;
+  cursor: pointer;
 }
 
 button:focus {
-    outline: none;
-    background-color: #CED4DA;
+  outline: none;
+  background-color: #ced4da;
 }
 
-code, pre, details {
-    margin: 5px;
-    cursor: default;
-    font-family: 'Andale', monospace;
-    background-color: #DEE2E6;
-    color: #0B101A;
-    display: block;
+code,
+pre,
+details {
+  margin: 5px;
+  cursor: default;
+  font-family: "Andale", monospace;
+  background-color: #dee2e6;
+  color: #0b101a;
+  display: block;
 }
 
 summary {
-    background-color: #E9ECEF;
-    color: #212529;
+  background-color: #e9ecef;
+  color: #212529;
 }
 
 summary:focus {
-    outline: none;
-    cursor: default;
+  outline: none;
+  cursor: default;
 }
 
 summary:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 #examples {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 #examples p {
-    color: #495057;
+  color: #495057;
 }
 
-#examples ul, #examples ol {
-    width: 40%;
+#examples ul,
+#examples ol {
+  width: 40%;
 }
 
 #documentation {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #documentation code {
-    display: block;
-    width: fit-content;
+  display: block;
+  width: fit-content;
 }
 
 #gh {
-    float: left;
-    margin-right: 3px;
+  float: left;
+  margin-right: 3px;
 }
 
 .card {
-    width: 80%;
-    padding: 10px;
-    box-shadow: #DEE2E6 0px 0px 2px 2px;
-    margin: 10px;
-    padding: 30px;
-    border-radius: 15px;
+  width: 80%;
+  padding: 10px;
+  box-shadow: #dee2e6 0px 0px 2px 2px;
+  margin: 10px;
+  padding: 30px;
+  border-radius: 15px;
 }
 
-ul, ol {
-    padding: 0px;
+ul,
+ol {
+  padding: 0px;
 }
 
 input::placeholder {
-  font-family: 'Andale', monospace;
+  font-family: "Andale", monospace;
 }
 
 input:focus {
-    outline: none;
+  outline: none;
 }
 
 table {
-    box-shadow: #E9ECEF 0px 0px 2px 2px;
-    border-collapse: collapse;
-    width: 100%;
+  box-shadow: #e9ecef 0px 0px 2px 2px;
+  border-collapse: collapse;
+  width: 100%;
 }
 
 /*
@@ -164,74 +169,76 @@ table {
       Date: n.d.
       Availability: https://www.w3schools.com/css/css_table_style.asp
 */
-tr:nth-child(even) {background-color: #E9ECEF;}
+tr:nth-child(even) {
+  background-color: #e9ecef;
+}
 
 th {
-    background-color: #7E97C9;
-    text-align: left;
-    padding: 15px;
+  background-color: #7e97c9;
+  text-align: left;
+  padding: 15px;
 }
 
 td {
-    padding: 15px;
+  padding: 15px;
 }
 
 a {
-    text-decoration: none;
-    color: inherit;
+  text-decoration: none;
+  color: inherit;
 }
 
 /* ADDING RESPONSIVENESS */
-.sm-buttons{
-    visibility: hidden;
+.sm-buttons {
+  visibility: hidden;
 }
 
 @media screen and (max-width: 640px) {
-    button{
-        display: none;
-    }
-    .sm-buttons{
-        visibility: visible; 
-        width:100%;
-        text-align: center;
-    }
-    .sm-buttons a span{
-        font-size: 0.9rem;
-        padding: 3px;
-        margin: 5px;
-        border: 2px solid #E9ECEF;
-    }
-    .sm-buttons a span:hover{
-        box-shadow: 0 0px 7px 0px rgb(233, 236, 239, 0.5);
-    }
+  button {
+    display: none;
+  }
+  .sm-buttons {
+    visibility: visible;
+    width: 100%;
+    text-align: center;
+  }
+  .sm-buttons a span {
+    font-size: 0.9rem;
+    padding: 3px;
+    margin: 5px;
+    border: 2px solid #e9ecef;
+  }
+  .sm-buttons a span:hover {
+    box-shadow: 0 0px 7px 0px rgb(233, 236, 239, 0.5);
+  }
 }
 
 /* FOR DOCS */
 
-code{
-    white-space: pre-wrap;
-    word-break: break-all;
+code {
+  white-space: pre-wrap;
+  word-break: break-all;
 }
 
-.table{
-    overflow-x: auto;
+.table {
+  overflow-x: auto;
 }
 
 @media screen and (max-width: 550px) {
-    .card{
-        width: 100%;
-        box-shadow: none;
-    }
+  .card {
+    width: 100%;
+    box-shadow: none;
+  }
 }
 
 @media screen and (max-width: 470px) {
-    td{
-        font-size: 0.68rem;
-    }
+  td {
+    font-size: 0.68rem;
+  }
 }
 
 @media screen and (max-width: 380px) {
-    .card{
-        padding: 20px;
-    }
+  .card {
+    padding: 20px;
+  }
 }
