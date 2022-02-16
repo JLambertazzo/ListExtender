@@ -2,3 +2,4 @@
 node_modules
 lib/ListExtender.min.js
 **/*.html
+.github

@@ -3,9 +3,9 @@ name: Format Code
 # This action works with pull requests and pushes
 on:
   pull_request:
-    branches: [ master ]
+    branches: [master]
   push:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   prettier:
