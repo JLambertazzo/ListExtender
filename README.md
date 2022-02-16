@@ -1,5 +1,7 @@
 # ListExtender.js
 
+<img src="https://www.julienbl.me/img/listextender23.gif" alt="Demo GIF" width=400 />
+
 ## https://www.julienbl.me/ListExtender/
 
 ## Install
