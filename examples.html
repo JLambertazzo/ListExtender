@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <head>
   <title>ListExtender.js</title>
   <link rel="stylesheet" href="css/style.css">
@@ -13,11 +14,15 @@
   <script defer type="text/javascript" src="https://www.julienbl.me/ListExtender/lib/ListExtender.min.js"></script>
   <script defer type="text/javascript" src="js/examples.js"></script>
 </head>
+
 <body>
   <nav>
-    <a href="index.html"><h3>ListExtender.js</h3></a>
+    <a href="index.html">
+      <h3>ListExtender.js</h3>
+    </a>
     <div id="nav-buttons">
-      <a href="https://github.com/JLambertazzo/ListExtender#readme"><img id='gh' src="img/GitHub-Mark-Light-32px.png" /></a>
+      <a href="https://github.com/JLambertazzo/ListExtender#readme"><img id='gh'
+          src="img/GitHub-Mark-Light-32px.png" /></a>
       <a href="examples.html"><button>Examples</button></a>
       <a href="documentation.html"><button>Documentation</button></a>
     </div>
@@ -29,7 +34,8 @@
       <p>Enter text to expand the list.
         <br> Drag and drop elements to rearrange them.
         <br> Double click validated elements to modify them again.
-        <br> Clear elements and deselect them to delete them</p>
+        <br> Clear elements and deselect them to delete them
+      </p>
       <details>
         <summary>Source Code</summary>
         <code>
@@ -72,14 +78,14 @@
         <button theme="Love">Love Theme</button>
         <button theme="Scissors">Scissors Theme</button>
         <button theme="Spiderman">Spiderman Theme</button>
-	      <button theme="batman">Batman Theme</button>
-	      <button theme="Sunflower">Sunflower Theme</button>
+        <button theme="batman">Batman Theme</button>
+        <button theme="Sunflower">Sunflower Theme</button>
         <button theme="matte">Matte Theme</button>
         <button theme="Alien">Alien Theme</button>
         <button theme="Dog">Dog Theme</button>
         <button theme="Folders">Folders Theme</button>
         <button theme="dracula">Dracula Theme</button>
-	      <button theme="Python">Python Theme</button>
+        <button theme="Python">Python Theme</button>
       </div>
       <details>
         <summary>Source Code</summary>
@@ -92,11 +98,13 @@
           <pre>const setCommTheme = event => {commList.setTheme(commList[event.target.getAttribute('theme')])}</pre>
         </code>
       </details>
-      <p>Want to add your own theme to this list? Check out <a href="https://github.com/JLambertazzo/ListExtender/blob/master/CONTRIBUTING.md">contributing.md</a></p>
+      <p>Want to add your own theme to this list? Check out <a
+          href="https://github.com/JLambertazzo/ListExtender/blob/master/CONTRIBUTING.md">contributing.md</a></p>
     </div>
     <div class="card" id="delThemeList">
-      <h3>We also have built-in styles for extending lists! Special thanks to 
-        <a href="https://github.com/basil08" style="text-decoration: underline;">@basil08</a> for the contribution 🚀</h3>
+      <h3>We also have built-in styles for extending lists! Special thanks to
+        <a href="https://github.com/basil08" style="text-decoration: underline;">@basil08</a> for the contribution 🚀
+      </h3>
       <div id="delThemeButtons" onclick="setDelTheme(event)">
         <!-- Made a theme for delete buttons? Add it below! -->
         <button theme="todo">To-Do Theme</button>
@@ -114,7 +122,8 @@
           <pre>const setDelTheme = event => {delThemeList.setDelBtnTheme(delThemeList.delBtnThemes[event.target.getAttribute('theme')])}</pre>
         </code>
       </details>
-      <p>Want to add your own theme to this list? Check out <a href="https://github.com/JLambertazzo/ListExtender/blob/master/CONTRIBUTING.md">contributing.md</a></p>
+      <p>Want to add your own theme to this list? Check out <a
+          href="https://github.com/JLambertazzo/ListExtender/blob/master/CONTRIBUTING.md">contributing.md</a></p>
     </div>
     <div class="card" id="deleteButton">
       <h3>Lists have an optional delete button that shows on hover</h3>
@@ -139,9 +148,9 @@
           <pre>validateOne.addAfter('#validationOne p')</pre>
           <pre>validateOne.setPlaceholder('yyyy-mm-dd || mm/dd/yyyy || ddmmyyyy')</pre>
           <pre>validateOne.addValidation(value => {</pre>
-          <pre>  return (value.match(/\d{4}-\d{2}-\d{2}/) && value.match(/\d{4}-\d{2}-\d{2}/)[0] === value) ||</pre>
-          <pre>  (value.match(/\d{2}\/\d{2}\/\d{4}/) && value.match(/\d{2}\/\d{2}\/\d{4}/)[0] === value) || </pre>
-          <pre>  (value.match(/\d{8}/) && value.match(/\d{8}/)[0] === value)</pre>
+          <pre>return (value.match(/\d{4}-\d{2}-\d{2}/) && value.match(/\d{4}-\d{2}-\d{2}/)[0] === value) ||</pre>
+          <pre>(value.match(/\d{2}\/\d{2}\/\d{4}/) && value.match(/\d{2}\/\d{2}\/\d{4}/)[0] === value) || </pre>
+          <pre>(value.match(/\d{8}/) && value.match(/\d{8}/)[0] === value)</pre>
           <pre>}, 'Please follow specified format!!')</pre>
         </code>
       </details>
@@ -156,14 +165,14 @@
           <pre>validateTwo.addAfter('#validationTwo p') </pre>
           <pre>validateTwo.setInputType('date')</pre>
           <pre>validateTwo.addValidation(value => { </pre>
-          <pre>  const vals = validateTwo.getData() </pre>
-          <pre>  for (let i = 0; i < vals.length; i++) { </pre>
-          <pre>    if (vals[i] === value) { </pre>
-          <pre>      return false </pre>
-          <pre>    } </pre>
-          <pre>  } </pre>
-          <pre>  return true </pre>
-          <pre>}, 'Duplicates not allowed!') </pre>
+          <pre>const vals = validateTwo.getData() </pre>
+          <pre>for (let i = 0; i < vals.length; i++) { </pre>
+          <pre>if (vals[i] === value) { </pre>
+          <pre>return false </pre>
+          <pre>}</pre>
+          <pre>}</pre>
+          <pre>return true </pre>
+          <pre>}, 'Duplicates not allowed!')</pre>
         </code>
       </details>
     </div>
@@ -182,10 +191,10 @@
           <pre>addItems.appendTo('#addItems')</pre> <br>
           <pre>// event listener for button click</pre>
           <pre>const handleSubmit = event => {</pre>
-          <pre>  event.preventDefault()</pre>
-          <pre>  const items = event.target.firstElementChild.value.split(' ').filter(val => val !== '')</pre>
-          <pre>  addItems.addFromArray(items)</pre>
-          <pre>  event.target.firstElementChild.value = ''</pre>
+          <pre>event.preventDefault()</pre>
+          <pre>const items = event.target.firstElementChild.value.split(' ').filter(val => val !== '')</pre>
+          <pre>addItems.addFromArray(items)</pre>
+          <pre>event.target.firstElementChild.value = ''</pre>
           <pre>}</pre>
         </code>
       </details>
@@ -202,10 +211,10 @@
           <pre>getItems.setPlaceholder('Type Here!')</pre>
           <pre>// event listener for button click</pre>
           <pre>const handleGetItems = event => {</pre>
-          <pre>  const p = event.target.previousElementSibling</pre>
-          <pre>  p.innerText = ''</pre>
-          <pre>  const data = getItems.getData()</pre>
-          <pre>  p.appendChild(document.createTextNode(`The items given in the list are: ${data.toString()}`))</pre>
+          <pre>const p = event.target.previousElementSibling</pre>
+          <pre>p.innerText = ''</pre>
+          <pre>const data = getItems.getData()</pre>
+          <pre>p.appendChild(document.createTextNode(`The items given in the list are: ${data.toString()}`))</pre>
           <pre>}</pre>
         </code>
       </details>
@@ -221,25 +230,26 @@
           <pre>const dataMarkedList = ['bug fixing', 'implement new feature']</pre>
           <pre>markedLists.addFromArray(dataMarkedList)</pre>
           <pre>markedLists.element.addEventListener('mouseenter', event => {</pre>
-          <pre>  const children = [...markedLists.element.children]</pre>
-          <pre>  children.forEach(child => {</pre>
-          <pre>    if (child.querySelector('input[type="submit"]')) {</pre>
-          <pre>      child.querySelector('input[type="submit"]').value = 'DONE'</pre>
-          <pre>      child.querySelector('input[type="submit"]').style.visibility = 'visible'</pre>
-          <pre>      child.querySelector('input[type="submit"]').style.background = 'green'</pre>
-          <pre>    }</pre>
-          <pre>  })</pre>
+          <pre>const children = [...markedLists.element.children]</pre>
+          <pre>children.forEach(child => {</pre>
+          <pre>if (child.querySelector('input[type="submit"]')) {</pre>
+          <pre>child.querySelector('input[type="submit"]').value = 'DONE'</pre>
+          <pre>child.querySelector('input[type="submit"]').style.visibility = 'visible'</pre>
+          <pre>child.querySelector('input[type="submit"]').style.background = 'green'</pre>
+          <pre>}</pre>
+          <pre>})</pre>
           <pre>})</pre>
           <pre>markedLists.element.addEventListener('mousedown', event => {</pre>
-          <pre>  if (event.target.tagName === 'INPUT' && event.target.getAttribute('type') === 'submit') { </pre>
-          <pre>    let ulElement = event.target.parentElement</pre>
-          <pre>    markedLists.element.insertBefore(ulElement, markedLists.element.children[0])</pre>
-          <pre>    ulElement.style['text-decoration'] = 'line-through'</pre>
-          <pre>  }</pre>
+          <pre>if (event.target.tagName === 'INPUT' && event.target.getAttribute('type') === 'submit') {</pre>
+          <pre>let ulElement = event.target.parentElement</pre>
+          <pre>markedLists.element.insertBefore(ulElement, markedLists.element.children[0])</pre>
+          <pre>ulElement.style['text-decoration'] = 'line-through'</pre>
+          <pre>}</pre>
           <pre>})</pre>
         </code>
       </details>
     </div>
   </div>
 </body>
+
 </html>
