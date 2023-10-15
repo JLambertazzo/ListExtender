@@ -149,6 +149,13 @@ ol {
   padding: 0px;
 }
 
+.tabbed_text {
+  text-indent: 10px;
+  padding-left: 10px;
+  list-style-type: circle;
+  list-style-position: inside;
+}
+
 input::placeholder {
   font-family: "Andale", monospace;
 }
