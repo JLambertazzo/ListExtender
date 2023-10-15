@@ -76,12 +76,12 @@ Submit the pull request. By clicking on "Create pull request"
 
 You will receive a notification email once your changes have been merged.
 
-- For more help on the process visit [Hacktoberfest](https://hacktoberfest.digitalocean.com/resources)
+- For more help on the process visit [Hacktoberfest](https://hacktoberfest.digitalocean.com/resources) !
 
 # Project Outline 
 
 ## For core library and logic 
-- Checkout [lib](/lib/).
+- Checkout [lib](/lib/) folder.
 - Also , for more instructions on using the library, visit:
 https://julienbl.me/ListExtender/documentation.html &nbsp; &nbsp; &nbsp; OR run [documentation](/documentation.html) on localhost.
 
@@ -89,12 +89,12 @@ https://julienbl.me/ListExtender/documentation.html &nbsp; &nbsp; &nbsp; OR run 
 - Click [html/website](/index.html) and run on localhost.
 
 ## For Styling
-- Check [CSS](/css/style.css)
+- Check [CSS](/css/style.css) file.
 
 ## For Script
-- Check [js](/js/) 
+- Check [js](/js/) folder.
   
-## For Example and to Understand 
+## For Examples and to Understand 
 - Check [example](/examples.html)
   
 Also Check: [Readme.md](/README.md)
