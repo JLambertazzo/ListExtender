@@ -47,3 +47,5 @@ myList.setInputType("email");
 ### For more instructions on using the library, visit:
 
 https://julienbl.me/ListExtender/documentation.html
+
+Also Check: [CONTRIBUTING.md](/CONTRIBUTING.md)
