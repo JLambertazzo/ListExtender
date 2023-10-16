@@ -146,9 +146,9 @@
           <pre>validateOne.addAfter('#validationOne p')</pre>
           <pre>validateOne.setPlaceholder('yyyy-mm-dd || mm/dd/yyyy || ddmmyyyy')</pre>
           <pre>validateOne.addValidation(value => {</pre>
-          <pre>return (value.match(/\d{4}-\d{2}-\d{2}/) && value.match(/\d{4}-\d{2}-\d{2}/)[0] === value) ||</pre>
-          <pre>(value.match(/\d{2}\/\d{2}\/\d{4}/) && value.match(/\d{2}\/\d{2}\/\d{4}/)[0] === value) || </pre>
-          <pre>(value.match(/\d{8}/) && value.match(/\d{8}/)[0] === value)</pre>
+          <pre>  return (value.match(/\d{4}-\d{2}-\d{2}/) && value.match(/\d{4}-\d{2}-\d{2}/)[0] === value) ||</pre>
+          <pre>  (value.match(/\d{2}\/\d{2}\/\d{4}/) && value.match(/\d{2}\/\d{2}\/\d{4}/)[0] === value) || </pre>
+          <pre>  (value.match(/\d{8}/) && value.match(/\d{8}/)[0] === value)</pre>
           <pre>}, 'Please follow specified format!!')</pre>
         </code>
       </details>
@@ -164,13 +164,13 @@
           <pre>validateTwo.addAfter('#validationTwo p') </pre>
           <pre>validateTwo.setInputType('date')</pre>
           <pre>validateTwo.addValidation(value => { </pre>
-          <pre>const vals = validateTwo.getData() </pre>
-          <pre>for (let i = 0; i < vals.length; i++) { </pre>
-          <pre>if (vals[i] === value) { </pre>
-          <pre>return false </pre>
-          <pre>} </pre>
-          <pre>} </pre>
-          <pre>return true </pre>
+          <pre>  const vals = validateTwo.getData() </pre>
+          <pre>  for (let i = 0; i < vals.length; i++) { </pre>
+          <pre>    if (vals[i] === value) { </pre>
+          <pre>      return false </pre>
+          <pre>    } </pre>
+          <pre>  } </pre>
+          <pre>  return true </pre>
           <pre>}, 'Duplicates not allowed!') </pre>
         </code>
       </details>
@@ -191,10 +191,10 @@
           <pre>addItems.appendTo('#addItems')</pre> <br>
           <pre>// event listener for button click</pre>
           <pre>const handleSubmit = event => {</pre>
-          <pre>event.preventDefault()</pre>
-          <pre>const items = event.target.firstElementChild.value.split(' ').filter(val => val !== '')</pre>
-          <pre>addItems.addFromArray(items)</pre>
-          <pre>event.target.firstElementChild.value = ''</pre>
+          <pre>  event.preventDefault()</pre>
+          <pre>  const items = event.target.firstElementChild.value.split(' ').filter(val => val !== '')</pre>
+          <pre>  addItems.addFromArray(items)</pre>
+          <pre>  event.target.firstElementChild.value = ''</pre>
           <pre>}</pre>
         </code>
       </details>
@@ -212,15 +212,15 @@
           <pre>getItems.setPlaceholder('Type Here!')</pre>
           <pre>// event listener for button click</pre>
           <pre>const handleGetItems = event => {</pre>
-          <pre>const p = event.target.previousElementSibling</pre>
-          <pre>p.innerText = ''</pre>
-          <pre>const data = getItems.getData()</pre>
-          <pre>p.appendChild(document.createTextNode(`The items given in the list are: ${data.toString()}`))</pre>
+          <pre>  const p = event.target.previousElementSibling</pre>
+          <pre>  p.innerText = ''</pre>
+          <pre>  const data = getItems.getData()</pre>
+          <pre>  p.appendChild(document.createTextNode(`The items given in the list are: ${data.toString()}`))</pre>
           <pre>}</pre>
         </code>
       </details>
     </div>
-
+    
     <div class="card" id="markedLists">
       <h3>Make a simple completed todo list!</h3>
       <p>The items that you can set complete.</p>
@@ -232,21 +232,21 @@
           <pre>const dataMarkedList = ['bug fixing', 'implement new feature']</pre>
           <pre>markedLists.addFromArray(dataMarkedList)</pre>
           <pre>markedLists.element.addEventListener('mouseenter', event => {</pre>
-          <pre>const children = [...markedLists.element.children]</pre>
-          <pre>children.forEach(child => {</pre>
-          <pre>if (child.querySelector('input[type="submit"]')) {</pre>
-          <pre>child.querySelector('input[type="submit"]').value = 'DONE'</pre>
-          <pre>child.querySelector('input[type="submit"]').style.visibility = 'visible'</pre>
-          <pre>child.querySelector('input[type="submit"]').style.background = 'green'</pre>
-          <pre>}</pre>
-          <pre>})</pre>
+          <pre>  const children = [...markedLists.element.children]</pre>
+          <pre>  children.forEach(child => {</pre>
+          <pre>    if (child.querySelector('input[type="submit"]')) {</pre>
+          <pre>      child.querySelector('input[type="submit"]').value = 'DONE'</pre>
+          <pre>      child.querySelector('input[type="submit"]').style.visibility = 'visible'</pre>
+          <pre>      child.querySelector('input[type="submit"]').style.background = 'green'</pre>
+          <pre>    }</pre>
+          <pre>  })</pre>
           <pre>})</pre>
           <pre>markedLists.element.addEventListener('mousedown', event => {</pre>
-          <pre>if (event.target.tagName === 'INPUT' && event.target.getAttribute('type') === 'submit') { </pre>
-          <pre>let ulElement = event.target.parentElement</pre>
-          <pre>markedLists.element.insertBefore(ulElement, markedLists.element.children[0])</pre>
-          <pre>ulElement.style['text-decoration'] = 'line-through'</pre>
-          <pre>}</pre>
+          <pre>  if (event.target.tagName === 'INPUT' && event.target.getAttribute('type') === 'submit') { </pre>
+          <pre>    let ulElement = event.target.parentElement</pre>
+          <pre>    markedLists.element.insertBefore(ulElement, markedLists.element.children[0])</pre>
+          <pre>    ulElement.style['text-decoration'] = 'line-through'</pre>
+          <pre>  }</pre>
           <pre>})</pre>
         </code>
       </details>
