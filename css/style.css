@@ -12,15 +12,18 @@ body {
   background-color: #f8f9fa;
 }
 
+#index-page {
+  background-color: #2a3e65;
+}
+
 #hero {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 92vh;
+  height: 90vh;
   width: 100%;
   color: #e9ecef;
-  background-color: #2a3e65;
   padding: 0 20px;
 }
 
