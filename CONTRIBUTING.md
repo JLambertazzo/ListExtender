@@ -81,20 +81,20 @@ You will receive a notification email once your changes have been merged.
 # Project Outline 
 
 ## For core library and logic 
-- Checkout [lib](/lib/) folder.
+- Checkout [lib](https://github.com/JLambertazzo/ListExtender/tree/master/lib) folder.
 - Also , for more instructions on using the library, visit:
 https://julienbl.me/ListExtender/documentation.html &nbsp; &nbsp; &nbsp; OR run [documentation](/documentation.html) on localhost.
 
 ## Checkout the website
-- Click [html/website](/index.html) and run on localhost.
+- Click [index.html](/index.html) and run on localhost.
 
 ## For Styling
-- Check [CSS](/css/style.css) file.
+- Check [CSS](https://github.com/JLambertazzo/ListExtender/tree/master/css) folder.
 
 ## For Script
-- Check [js](/js/) folder.
+- Check [js](https://github.com/JLambertazzo/ListExtender/tree/master/js) folder.
   
 ## For Examples and to Understand 
-- Check [example](/examples.html)
+- Check [example](https://github.com/JLambertazzo/ListExtender/tree/master/examples.html)
   
-Also Check: [Readme.md](/README.md)
+Also Check: [Readme.md](https://github.com/JLambertazzo/ListExtender/tree/master/README.md)
