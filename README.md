@@ -48,4 +48,4 @@ myList.setInputType("email");
 
 https://julienbl.me/ListExtender/documentation.html
 
-Also Check: [CONTRIBUTING.md](/CONTRIBUTING.md)
+Also Check: [CONTRIBUTING.md](https://github.com/JLambertazzo/ListExtender/tree/master/CONTRIBUTING.md)
