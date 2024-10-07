@@ -80,12 +80,13 @@ button:focus {
 code,
 pre,
 details {
-  margin: 5px;
+  margin: 0px;
   cursor: default;
   font-family: "Andale", monospace;
   background-color: #dee2e6;
   color: #0b101a;
   display: block;
+  line-height: 0.8;
 }
 
 summary {
